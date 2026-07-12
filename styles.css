@@ -61,3 +61,15 @@ section {
     border: 5px solid white;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
+.project-card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
