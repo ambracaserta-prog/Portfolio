@@ -233,7 +233,14 @@ h3 + .project-card:has(> :not(h4)) {
 }
 
 .project-card li::before {
-  .cert-group {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.cert-group {
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
