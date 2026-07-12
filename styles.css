@@ -233,11 +233,22 @@ h3 + .project-card:has(> :not(h4)) {
 }
 
 .project-card li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--teal);
+  .cert-group {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal);
+  margin: 20px 0 6px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.cert-group:first-child {
+  margin-top: 0;
 }
 
 /* ---------- About / Contact / Resume text blocks ---------- */
