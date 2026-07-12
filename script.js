@@ -1,1 +1,52 @@
+// Ambra Caserta Portfolio — motion enhancements
+// 1. Injects an animated "sparkline" signature under the hero tagline
+// 2. Reveals cards/sections as they scroll into view
 
+document.addEventListener('DOMContentLoaded', () => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- 1. Inject sparkline signature into hero ----
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('class', 'sparkline');
+    svg.setAttribute('viewBox', '0 0 140 36');
+
+    svg.innerHTML = `
+      <defs>
+        <linearGradient id="sparklineGradient" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#2F6F62"/>
+          <stop offset="100%" stop-color="#C98A3E"/>
+        </linearGradient>
+      </defs>
+      <path d="M2,28 L22,22 L42,26 L62,14 L82,18 L102,8 L122,10 L138,3"/>
+      <circle cx="138" cy="3" r="3.5" fill="#C98A3E"/>
+    `;
+
+    hero.appendChild(svg);
+  }
+
+  // ---- 2. Scroll-reveal for cards and text blocks ----
+  const revealTargets = document.querySelectorAll('.project-card, body > p');
+  revealTargets.forEach(el => el.classList.add('reveal'));
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealTargets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('is-visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  revealTargets.forEach(el => observer.observe(el));
+});
