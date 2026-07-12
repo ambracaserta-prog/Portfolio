@@ -351,3 +351,11 @@ a:focus-visible,
     stroke-dashoffset: 0 !important;
   }
 }
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    width: 100%;
+}
