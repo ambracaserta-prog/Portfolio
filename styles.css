@@ -1,361 +1,246 @@
-/* ===========================================================
-   Ambra Caserta — Portfolio Stylesheet
-   Theme: data storytelling, warm & analytical
-   =========================================================== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Human-AI Trust Gap | Ambra Caserta</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .case-header {
+            max-width: var(--max-width);
+            margin: 56px auto 0;
+            padding: 0 0 32px;
+        }
+        .back-link {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            border-bottom: none;
+            margin-bottom: 24px;
+        }
+        .back-link:hover {
+            color: var(--teal-dark);
+        }
+        .case-header h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin: 0 0 10px;
+            color: var(--ink);
+        }
+        .case-header .kicker {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--teal);
+            margin: 0;
+        }
+        .case-section h3 {
+            margin: 56px auto 20px;
+        }
+        .case-section h3:first-of-type {
+            margin-top: 8px;
+        }
+        .chart-card {
+            max-width: var(--max-width);
+            margin: 0 auto 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            box-shadow: var(--shadow);
+        }
+        .chart-card .caption {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            margin: 14px 0 0;
+        }
+        .chart-wrap {
+            position: relative;
+            width: 100%;
+            height: 280px;
+        }
+        .heatmap-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.85rem;
+        }
+        .heatmap-table th {
+            padding: 8px;
+            text-align: center;
+            color: var(--ink-soft);
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+        .heatmap-table th:first-child,
+        .heatmap-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: var(--ink-soft);
+            white-space: nowrap;
+        }
+        .heatmap-table td {
+            padding: 14px;
+            text-align: center;
+            border-radius: 6px;
+        }
+        .footnote {
+            max-width: var(--max-width);
+            margin: 32px auto 0;
+            padding: 20px 32px;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            border-top: 1px solid var(--border);
+        }
+        .legend {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            font-size: 0.78rem;
+            color: var(--ink-soft);
+        }
+        .legend span.swatch {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+    <div class="case-header">
+        <a href="../index.html" class="back-link">&larr; Back to portfolio</a>
+        <p class="kicker">AI Adoption Research &bull; Organizational Readiness &bull; Cross-Cultural Consumer Behavior</p>
+        <h1>The Human-AI Trust Gap</h1>
+    </div>
 
-:root {
-  --bg: #F5F7F3;
-  --bg-card: #FFFFFF;
-  --ink: #20262B;
-  --ink-soft: #4B5560;
-  --teal: #2F6F62;
-  --teal-dark: #234F45;
-  --amber: #C98A3E;
-  --border: #E1E5DE;
-  --shadow: 0 4px 20px rgba(32, 38, 43, 0.06);
-  --shadow-hover: 0 10px 30px rgba(32, 38, 43, 0.10);
-  --radius: 14px;
-  --max-width: 780px;
-}
+    <div class="case-section">
 
-* {
-  box-sizing: border-box;
-}
+    <h3>The Problem</h3>
+    <div class="project-card">
+        <p>
+            Fashion brands are investing heavily in AI-driven personalization &mdash; virtual try-ons, chatbots, recommendation engines &mdash; but adoption keeps stalling. The industry assumption was that resistance came from technical friction. My research asked a different question: what if the barrier isn't capability, but trust?
+        </p>
+    </div>
 
-body {
-  margin: 0;
-  padding: 0 24px 80px;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height: 1.65;
-  font-size: 16px;
-}
+    <h3>Approach</h3>
+    <div class="project-card">
+        <p>
+            I designed a mixed-methods study (n=176; 98 U.S., 78 Italy) combining a 7-point Likert survey across eight trust dimensions and four privacy variables with seven semi-structured interviews with a cross-functional, cross-cultural expert panel &mdash; AI strategists, consumer psychologists, luxury brand leaders, retail VCs.
+        </p>
+        <p>
+            Quantitative analysis used independent-samples t-tests, one-way ANOVA with Tukey HSD post-hoc tests, and Pearson correlations in SPSS; qualitative data was coded using Braun &amp; Clarke's (2006) thematic analysis. The two-country design let me test whether trust in AI is culturally universal or context-dependent.
+        </p>
+    </div>
 
-/* ---------- Hero ---------- */
+    <h3>Key Insight</h3>
+    <div class="project-card">
+        <p>
+            <strong>The &ldquo;digital native&rdquo; assumption was wrong.</strong> I hypothesized younger consumers would trust AI's decision-making most. Instead, the 35&ndash;64 cohort rated AI significantly more favorably than younger respondents (F(5,165) = 2.945, <em>p</em> = .014). One expert described younger users experiencing &ldquo;polarization&rdquo; &mdash; some embracing AI as efficient, others finding it emotionally hollow &mdash; while another noted that &ldquo;frequent use does not necessarily equate to deep trust.&rdquo;
+        </p>
+    </div>
 
-.hero {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 72px 0 40px;
-  text-align: center;
-  position: relative;
-}
+    <div class="chart-card">
+        <div class="chart-wrap">
+            <canvas id="ageChart" role="img" aria-label="Bar chart of mean AI trust equality score by age group. 18 to 24: 1.29. 25 to 34: 1.39. 35 to 44: 1.47. 45 to 54: 1.51. 55 to 64: 1.65, the highest, highlighted. 65 to 74: 1.24.">Age group trust scores: 18-24: 1.29, 25-34: 1.39, 35-44: 1.47, 45-54: 1.51, 55-64: 1.65, 65-74: 1.24.</canvas>
+        </div>
+        <p class="caption">Mean trust in AI's human-like decision-making, by age group. The 55&ndash;64 cohort (highlighted) trusted AI's judgment more than any other group, including Gen Z.</p>
+    </div>
 
-.profile-pic {
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--bg-card);
-  box-shadow: var(--shadow-hover);
-  margin-bottom: 28px;
-}
+    <div class="project-card">
+        <p>
+            <strong>Privacy concern predicts understanding, not rejection.</strong> Consumers with higher ethical sensitivity around data misuse and privacy respect also reported <em>better</em> cognitive understanding of how AI systems work (r = .202, <em>p</em> &lt; .01 and r = .165, <em>p</em> &lt; .05). The people most worried about AI aren't opting out &mdash; they're paying closer attention.
+        </p>
+    </div>
 
-.hero h1 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 2.75rem;
-  font-weight: 600;
-  margin: 0 0 10px;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
+    <div class="chart-card">
+        <table class="heatmap-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Privacy concern</th>
+                    <th>Trust understand</th>
+                    <th>Trust style</th>
+                    <th>Trust ease of use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Privacy concern</th>
+                    <td style="background: #2F6F62; color: #fff; font-weight: 600;">1.00</td>
+                    <td style="background: rgba(47,111,98,0.30);">0.20</td>
+                    <td style="background: rgba(47,111,98,0.24);">0.16</td>
+                    <td style="background: rgba(201,138,62,0.16);">-0.08</td>
+                </tr>
+                <tr>
+                    <th>Trust understand</th>
+                    <td style="background: rgba(47,111,98,0.30);">0.20</td>
+                    <td style="background: #2F6F62; color: #fff; font-weight: 600;">1.00</td>
+                    <td style="background: var(--bg);">0.00</td>
+                    <td style="background: rgba(47,111,98,0.08);">0.05</td>
+                </tr>
+                <tr>
+                    <th>Trust style</th>
+                    <td style="background: rgba(47,111,98,0.24);">0.16</td>
+                    <td style="background: var(--bg);">0.00</td>
+                    <td style="background: #2F6F62; color: #fff; font-weight: 600;">1.00</td>
+                    <td style="background: rgba(201,138,62,0.14);">-0.07</td>
+                </tr>
+                <tr>
+                    <th>Trust ease of use</th>
+                    <td style="background: rgba(201,138,62,0.16);">-0.08</td>
+                    <td style="background: rgba(47,111,98,0.08);">0.05</td>
+                    <td style="background: rgba(201,138,62,0.14);">-0.07</td>
+                    <td style="background: #2F6F62; color: #fff; font-weight: 600;">1.00</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="legend">
+            <span class="swatch" style="background: #2F6F62;"></span>positive correlation
+            <span class="swatch" style="background: rgba(201,138,62,0.5);"></span>negative correlation
+        </div>
+        <p class="caption">Pearson correlations between privacy concern and three trust dimensions. Privacy concern correlates most with understanding AI (0.20) &mdash; not with lower trust overall.</p>
+    </div>
 
-.hero h2 {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--teal);
-  margin: 0 0 20px;
-}
+    <h3>Engineering Maturity Lesson</h3>
+    <div class="project-card">
+        <p>
+            This project shifted how I think about &ldquo;done.&rdquo; A technically sound recommendation engine can still fail if it has no governance layer around it. The real tradeoff isn't automation vs. control &mdash; it's efficiency vs. psychological ownership. My recommendation was a hybrid-assistant model: AI handles scale and personalization, while an explainability layer (&ldquo;why we recommended this&rdquo;) and human oversight preserve user agency. Transparency isn't a compliance checkbox; it's a reliability requirement, the same way error handling is a reliability requirement in a technical system.
+        </p>
+    </div>
 
-.hero > p {
-  font-family: 'Fraunces', Georgia, serif;
-  font-style: italic;
-  font-size: 1.25rem;
-  color: var(--ink-soft);
-  max-width: 480px;
-  margin: 0 auto;
-}
+    </div>
 
-/* ---------- Entrance animation (hero) ---------- */
+    <p class="footnote">
+        Methodology note: sample was non-probabilistic (Qualtrics panel), limited to two countries, and captured a single point in time &mdash; flagged transparently in the original thesis as boundaries on generalizability, not as flaws to hide.
+    </p>
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    <footer>
+        <p>&copy; 2026 Ambra Caserta. All rights reserved.</p>
+    </footer>
 
-.hero > * {
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
-}
-
-.hero > img.profile-pic  { animation-delay: 0.05s; }
-.hero > h1                { animation-delay: 0.15s; }
-.hero > h2                { animation-delay: 0.25s; }
-.hero > p                 { animation-delay: 0.35s; }
-.hero > .sparkline        { animation-delay: 0.5s; }
-
-/* ---------- Sparkline signature (injected by script.js) ---------- */
-
-.sparkline {
-  display: block;
-  width: 140px;
-  height: 36px;
-  margin: 28px auto 0;
-}
-
-.sparkline path {
-  fill: none;
-  stroke: url(#sparklineGradient);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
-  animation: drawLine 1.1s ease forwards;
-  animation-delay: 0.9s;
-}
-
-.sparkline circle {
-  opacity: 0;
-  animation: fadeUp 0.4s ease forwards;
-  animation-delay: 1.9s;
-}
-
-@keyframes drawLine {
-  to { stroke-dashoffset: 0; }
-}
-
-/* ---------- Scroll reveal (cards, text blocks) ---------- */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ---------- Section headings ---------- */
-
-h3 {
-  max-width: var(--max-width);
-  margin: 64px auto 20px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--amber);
-  position: relative;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-
-/* Body copy that sits outside cards (About Me, Contact) */
-body > p {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  color: var(--ink-soft);
-}
-
-/* ---------- Cards ---------- */
-
-.project-card {
-  max-width: var(--max-width);
-  margin: 0 auto 18px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px 32px;
-  box-shadow: var(--shadow);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
-}
-
-.project-card:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
-}
-
-.project-card h4 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0 0 12px;
-  color: var(--ink);
-}
-
-.project-card p {
-  color: var(--ink-soft);
-  margin: 0 0 10px;
-}
-
-.project-card p:last-child {
-  margin-bottom: 0;
-}
-
-/* Core Skills card reads as a tag cloud rather than a paragraph */
-h3 + .project-card:has(> :not(h4)) {
-  padding: 24px 28px;
-}
-
-/* ---------- Certifications list ---------- */
-
-.project-card ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.project-card li {
-  position: relative;
-  padding: 8px 0 8px 26px;
-  color: var(--ink-soft);
-  border-bottom: 1px solid var(--border);
-}
-
-.project-card li:last-child {
-  border-bottom: none;
-}
-
-.project-card li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--teal);
-  font-weight: 700;
-}
-
-.cert-group {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--teal);
-  margin: 20px 0 6px;
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-}
-
-.cert-group:first-child {
-  margin-top: 0;
-}
-
-/* ---------- About / Contact / Resume text blocks ---------- */
-
-body > p {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px 32px;
-  box-shadow: var(--shadow);
-}
-
-/* ---------- Links ---------- */
-
-a {
-  color: var(--teal);
-  text-decoration: none;
-  font-weight: 600;
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-a:hover {
-  color: var(--teal-dark);
-  border-color: var(--teal-dark);
-}
-
-/* Resume + LinkedIn buttons */
-p > a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--teal);
-  color: #FFFFFF !important;
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  border: none !important;
-  box-shadow: var(--shadow);
-}
-
-p > a:hover {
-  background: var(--teal-dark);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-1px);
-}
-
-/* Center the button paragraphs (Resume / LinkedIn) */
-body > p:has(> a) {
-  background: none;
-  border: none;
-  box-shadow: none;
-  text-align: center;
-  padding: 8px 0;
-}
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 600px) {
-  .hero {
-    padding: 48px 0 32px;
-  }
-  .hero h1 {
-    font-size: 2.1rem;
-  }
-  .project-card {
-    padding: 22px 20px;
-  }
-  body > p {
-    padding: 20px 22px;
-  }
-}
-
-/* ---------- Accessibility ---------- */
-
-a:focus-visible,
-:focus-visible {
-  outline: 2px solid var(--amber);
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    animation: none !important;
-  }
-  .hero > *,
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .sparkline path {
-    stroke-dashoffset: 0 !important;
-  }
-}
-footer {
-    margin-top: 50px;
-    padding: 20px;
-    text-align: center;
-    color: #64748b;
-    border-top: 1px solid #e2e8f0;
-    width: 100%;
-}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script>
+        const labels = ['18-24','25-34','35-44','45-54','55-64','65-74'];
+        const data = [1.29,1.39,1.47,1.51,1.65,1.24];
+        const colors = data.map((v,i) => i === 4 ? '#2F6F62' : '#D9DAD1');
+        new Chart(document.getElementById('ageChart'), {
+            type: 'bar',
+            data: { labels, datasets: [{ data, backgroundColor: colors, borderRadius: 4, maxBarThickness: 44 }] },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => 'Mean trust score: ' + c.parsed.y.toFixed(2) } } },
+                scales: {
+                    y: { beginAtZero: true, max: 2, grid: { color: '#E1E5DE' }, ticks: { color: '#4B5560' } },
+                    x: { grid: { display: false }, ticks: { color: '#4B5560' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
