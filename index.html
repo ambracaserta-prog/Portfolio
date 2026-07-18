@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hero">
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-brand">AC</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero" id="top">
         <img src="HeadShot.png" alt="Ambra Caserta" class="profile-pic">
         <h1>Ambra Caserta</h1>
         <h2>Customer Intelligence • Learning Strategy • Analytics • AI Adoption</h2>
@@ -16,39 +30,56 @@
         </p>
     </div>
 
-    <h3>About Me</h3>
+    <h3 id="about">About Me</h3>
     <p>
         Customer Intelligence and Learning Enablement professional with a background in analytics, consumer behavior, and AI research.
         I use data-driven insights and customer-centric thinking to drive engagement, adoption, and organizational growth.
     </p>
 
-    <h3>Core Skills</h3>
-    <div class="project-card">
+    <h3 id="skills">Core Skills</h3>
+    <div class="project-card skills-card">
         <h4>Customer Intelligence</h4>
-        <p>
-            Customer-Centric Strategy • Consumer Behavior • Audience Segmentation • Customer Experience • Insights Generation
-        </p>
+        <div class="pill-group">
+            <span class="pill">Customer-Centric Strategy</span>
+            <span class="pill">Consumer Behavior</span>
+            <span class="pill">Audience Segmentation</span>
+            <span class="pill">Customer Experience</span>
+            <span class="pill">Insights Generation</span>
+        </div>
     </div>
-    <div class="project-card">
+    <div class="project-card skills-card">
         <h4>Learning & Enablement</h4>
-        <p>
-            Learning Strategy • Program Management • Campaigns • Stakeholder Engagement • Change Enablement
-        </p>
+        <div class="pill-group">
+            <span class="pill">Learning Strategy</span>
+            <span class="pill">Program Management</span>
+            <span class="pill">Campaigns</span>
+            <span class="pill">Stakeholder Engagement</span>
+            <span class="pill">Change Enablement</span>
+        </div>
     </div>
-    <div class="project-card">
+    <div class="project-card skills-card">
         <h4>Analytics & Data</h4>
-        <p>
-            Data Analysis • Predictive Analytics • Data Storytelling • SQL • Tableau • Power BI
-        </p>
+        <div class="pill-group">
+            <span class="pill">Data Analysis</span>
+            <span class="pill">Predictive Analytics</span>
+            <span class="pill">Data Storytelling</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Tableau</span>
+            <span class="pill">Power BI</span>
+        </div>
     </div>
-    <div class="project-card">
+    <div class="project-card skills-card">
         <h4>AI & Technology</h4>
-        <p>
-            AI Adoption • Prompt Engineering • Generative AI • Digital Transformation • Emerging Technologies
-        </p>
+        <div class="pill-group">
+            <span class="pill">AI Adoption</span>
+            <span class="pill">Prompt Engineering</span>
+            <span class="pill">Generative AI</span>
+            <span class="pill">Digital Transformation</span>
+            <span class="pill">Emerging Technologies</span>
+        </div>
     </div>
 
-    <h3>Experience</h3>
+    <h3 id="experience">Experience</h3>
     <div class="project-card">
         <h4>Learning & Enablement Manager | HireTalent</h4>
         <p>
@@ -65,37 +96,42 @@
         </p>
     </div>
 
-    <h3>Featured Projects</h3>
-   <div class="project-card">
-    <h4>The Human-AI Trust Gap</h4>
-    <p>
-        Research project exploring barriers to AI adoption and strategies to build trust, transparency, and organizational readiness.
-    </p>
-    <p>
-        <a href="projects/human-ai-trust-gap.html">Read the full case study →</a>
-    </p>
-</div>
-</div>
-    <div class="project-card">
-        <h4>Future-Proofing Starbucks</h4>
-        <p>
-            Strategic business analysis evaluating customer trends, digital innovation, and long-term growth opportunities.
-        </p>
-    </div>
-    <div class="project-card">
-        <h4>Used Car Price Prediction</h4>
-        <p>
-            Machine learning model leveraging predictive analytics to estimate vehicle market value using historical data.
-        </p>
-    </div>
-    <div class="project-card">
-        <h4>Ivy Medical Center Database</h4>
-        <p>
-            Relational database design project supporting healthcare operations, reporting, and data management efficiency.
-        </p>
+    <h3 id="projects">Featured Projects</h3>
+    <div class="project-grid">
+        <div class="project-card">
+            <span class="tag">Research</span>
+            <h4>The Human-AI Trust Gap</h4>
+            <p>
+                Research project exploring barriers to AI adoption and strategies to build trust, transparency, and organizational readiness.
+            </p>
+            <p>
+                <a href="projects/human-ai-trust-gap.html">Read the full case study →</a>
+            </p>
+        </div>
+        <div class="project-card">
+            <span class="tag">Strategy</span>
+            <h4>Future-Proofing Starbucks</h4>
+            <p>
+                Strategic business analysis evaluating customer trends, digital innovation, and long-term growth opportunities.
+            </p>
+        </div>
+        <div class="project-card">
+            <span class="tag">Machine Learning</span>
+            <h4>Used Car Price Prediction</h4>
+            <p>
+                Machine learning model leveraging predictive analytics to estimate vehicle market value using historical data.
+            </p>
+        </div>
+        <div class="project-card">
+            <span class="tag">Databases</span>
+            <h4>Ivy Medical Center Database</h4>
+            <p>
+                Relational database design project supporting healthcare operations, reporting, and data management efficiency.
+            </p>
+        </div>
     </div>
 
-    <h3>Certifications</h3>
+    <h3 id="certifications">Certifications</h3>
 
 <div class="project-card">
     <h4>Analytics & Data</h4>
@@ -115,7 +151,7 @@
     </ul>
 </div>
 
-    <h3>Contact</h3>
+    <h3 id="contact">Contact</h3>
     <p>Email: ambra.caserta.ac@gmail.com</p>
 
     <h3>Resume</h3>
