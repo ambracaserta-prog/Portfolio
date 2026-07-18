@@ -1,64 +1,530 @@
-<!-- ===== Project Card: Human-AI Trust Gap ===== -->
-<a href="projects/human-ai-trust-gap.html" class="project-card trust-gap-card">
-  <span class="project-card__tag">Research · Marketing Analytics</span>
-  <h3 class="project-card__title">The Human–AI Trust Gap</h3>
-  <p class="project-card__desc">
-    A cross-cultural, mixed-methods study of how Italian and American consumers
-    trust — or distrust — AI in fashion marketing. 176 survey respondents,
-    7 expert interviews, and a few assumptions that didn't survive the data.
-  </p>
-  <div class="project-card__meta">
-    <span>MAR 692Q · Lubin School of Business</span>
-    <span class="project-card__arrow">View case study →</span>
-  </div>
-</a>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Human-AI Trust Gap — Ambra Caserta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  .trust-gap-card{
-    display:block;
-    text-decoration:none;
-    color:inherit;
-    background:#15151b;
-    border:1px solid #3a3a42;
-    border-radius:4px;
-    padding:1.8rem;
-    max-width:420px;
-    transition:border-color .2s ease, transform .2s ease;
+  :root{
+    --ink:#15151b;
+    --ink-soft:#1f1f27;
+    --paper:#eeeae1;
+    --paper-soft:#e4ddce;
+    --wine:#7c2d3b;
+    --wine-soft:#a8505f;
+    --navy:#22395c;
+    --navy-soft:#3f5c86;
+    --gold:#a9814f;
+    --text-ink:#eeeae4;
+    --text-ink-dim:#a6a3a0;
+    --text-paper:#1b1916;
+    --text-paper-dim:#5c574e;
+    --rule:#3a3a42;
+    --rule-paper:#cfc6b3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text-ink);
     font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
   }
-  .trust-gap-card:hover{
-    border-color:#a9814f;
-    transform:translateY(-2px);
+  ::selection{ background:var(--wine); color:#fff; }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:.6rem;
   }
-  .trust-gap-card .project-card__tag{
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:450; letter-spacing:-.01em; }
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(21,21,27,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+    padding:.9rem 6vw;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.75rem;
+    letter-spacing:.04em;
+  }
+  nav .mark{ color:var(--text-ink); font-weight:500; }
+  nav .mark span{ color:var(--wine-soft); }
+  nav ul{ list-style:none; display:flex; gap:1.6rem; }
+  nav a{ color:var(--text-ink-dim); text-decoration:none; transition:color .2s; }
+  nav a:hover{ color:var(--gold); }
+  @media (max-width:820px){ nav ul{ display:none; } }
+
+  /* ===== HERO ===== */
+  header.hero{
+    padding:9rem 6vw 6rem;
+    max-width:1180px; margin:0 auto;
+    border-bottom:1px solid var(--rule);
+  }
+  header.hero .eyebrow{ margin-bottom:1.6rem; }
+  header.hero h1{
+    font-size:clamp(2.6rem, 6vw, 5rem);
+    line-height:1.02;
+    max-width:14ch;
+  }
+  header.hero h1 em{ font-style:italic; color:var(--wine-soft); }
+  header.hero p.dek{
+    margin-top:1.8rem;
+    max-width:52ch;
+    font-size:1.15rem;
+    color:var(--text-ink-dim);
+    font-weight:400;
+  }
+  .byline{
+    margin-top:2.6rem;
+    display:flex; gap:2.4rem; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.75rem;
+    color:var(--text-ink-dim);
+  }
+  .byline b{ color:var(--text-ink); display:block; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.3rem; font-weight:500;}
+
+  /* ===== SECTION SHELL ===== */
+  section{
+    padding:5.5rem 6vw;
+    max-width:1180px; margin:0 auto;
+    border-bottom:1px solid var(--rule);
+  }
+  section.paper{
+    background:var(--paper);
+    color:var(--text-paper);
+    max-width:none;
+    border-bottom:1px solid var(--rule-paper);
+  }
+  section.paper > .inner{ max-width:1180px; margin:0 auto; }
+  .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.8rem;
+    color:var(--gold);
+    letter-spacing:.1em;
+  }
+  section h2{
+    font-size:clamp(1.8rem,3.4vw,2.6rem);
+    margin-top:.5rem;
+    max-width:20ch;
+  }
+  .paper h2{ color:var(--text-paper); }
+  section > .lede{
+    max-width:60ch;
+    margin-top:1.3rem;
+    color:var(--text-ink-dim);
+    font-size:1.05rem;
+  }
+  .paper .lede{ color:var(--text-paper-dim); }
+
+  /* ===== GRID / CARDS ===== */
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem; margin-top:3rem; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; margin-top:3rem; }
+  @media (max-width:820px){ .grid3, .grid2{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--ink-soft);
+    border:1px solid var(--rule);
+    padding:1.8rem;
+    border-radius:2px;
+  }
+  .paper .card{
+    background:#fff;
+    border:1px solid var(--rule-paper);
+  }
+  .card .tag{
     font-family:'IBM Plex Mono', monospace;
     font-size:.68rem;
     letter-spacing:.1em;
     text-transform:uppercase;
-    color:#a9814f;
+    padding:.2rem .55rem;
+    display:inline-block;
+    border-radius:20px;
   }
-  .trust-gap-card .project-card__title{
-    font-family:'Fraunces', serif;
-    font-size:1.4rem;
-    color:#eeeae4;
-    margin:.6rem 0 .7rem;
+  .tag.sig{ background:rgba(169,129,79,.18); color:var(--gold); }
+  .tag.trend{ background:rgba(63,92,134,.18); color:var(--navy-soft); }
+  .card h3{ font-size:1.25rem; margin-top:.8rem; }
+  .card p{ margin-top:.7rem; font-size:.94rem; color:var(--text-ink-dim); }
+  .paper .card p{ color:var(--text-paper-dim); }
+  .stat{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.78rem;
+    color:var(--wine-soft);
+    margin-top:.9rem;
+    padding-top:.8rem;
+    border-top:1px dashed var(--rule);
   }
-  .trust-gap-card .project-card__desc{
-    font-size:.9rem;
-    line-height:1.55;
-    color:#a6a3a0;
-    margin-bottom:1.2rem;
-  }
-  .trust-gap-card .project-card__meta{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+  .paper .stat{ border-top:1px dashed var(--rule-paper); color:var(--wine); }
+
+  /* ===== CHART ===== */
+  .chart-wrap{ margin-top:2.6rem; }
+  .chart-caption{
     font-family:'IBM Plex Mono', monospace;
     font-size:.72rem;
-    color:#7c9;
-    border-top:1px dashed #3a3a42;
-    padding-top:.9rem;
+    color:var(--text-paper-dim);
+    margin-top:.9rem;
+    max-width:60ch;
   }
-  .trust-gap-card .project-card__meta span:first-child{ color:#a6a3a0; }
-  .trust-gap-card .project-card__arrow{ color:#7c2d3b; }
+  .legend{ display:flex; gap:1.6rem; margin-top:1rem; font-family:'IBM Plex Mono', monospace; font-size:.72rem; }
+  .legend span{ display:inline-flex; align-items:center; gap:.5rem; }
+  .swatch{ width:12px; height:12px; display:inline-block; border-radius:2px; }
+
+  /* ===== TABLE ===== */
+  table{ width:100%; border-collapse:collapse; margin-top:2rem; font-size:.9rem; }
+  caption{ text-align:left; font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--text-paper-dim); margin-bottom:.6rem; letter-spacing:.04em; }
+  th,td{ text-align:left; padding:.75rem .9rem; border-bottom:1px solid var(--rule-paper); }
+  th{ font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-paper-dim); font-weight:500; }
+  td.num{ font-family:'IBM Plex Mono', monospace; color:var(--text-paper); }
+  tr.sig td{ background:rgba(124,45,59,.06); }
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.68rem;
+    padding:.18rem .55rem;
+    border-radius:20px;
+    display:inline-block;
+    white-space:nowrap;
+  }
+  .pill.not{ background:#e6dcd3; color:#8a5a3a; }
+  .pill.partial{ background:rgba(169,129,79,.18); color:#7a5c2c; }
+  .pill.strong{ background:rgba(124,45,59,.14); color:var(--wine); }
+
+  .theory-list{ margin-top:2.6rem; display:grid; gap:1.2rem; }
+  .theory{
+    display:grid; grid-template-columns:220px 1fr; gap:1.4rem;
+    padding:1.4rem 0; border-top:1px solid var(--rule-paper);
+  }
+  .theory:first-child{ border-top:none; }
+  .theory h4{ font-family:'Fraunces', serif; font-weight:450; font-size:1.05rem; color:var(--text-paper); }
+  .theory .yr{ font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--wine); display:block; margin-top:.3rem; }
+  .theory p{ font-size:.92rem; color:var(--text-paper-dim); }
+  @media (max-width:700px){ .theory{ grid-template-columns:1fr; } }
+
+  /* ===== FOOTER ===== */
+  footer{
+    padding:4rem 6vw 5rem;
+    max-width:1180px; margin:0 auto;
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.5rem;
+  }
+  footer .note{ color:var(--text-ink-dim); font-size:.85rem; max-width:44ch; }
+  footer .back{ font-family:'IBM Plex Mono', monospace; font-size:.75rem; color:var(--gold); text-decoration:none; }
+
+  @media print{
+    nav{ display:none; }
+    body{ background:#fff; color:#111; }
+    section{ break-inside:avoid; border-color:#ddd; }
+  }
 </style>
+</head>
+<body>
+
+<nav>
+  <div class="mark">Caserta<span>·</span>Research</div>
+  <ul>
+    <li><a href="#challenge">Challenge</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#findings">Findings</a></li>
+    <li><a href="#backbone">Backbone</a></li>
+    <li><a href="#application">Application</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <p class="eyebrow">Graduate Research · Marketing Analytics</p>
+  <h1>The Human–AI <em>Trust Gap</em></h1>
+  <p class="dek">A cross-cultural, mixed-methods study of how Italian and American consumers actually come to trust — or distrust — AI in fashion marketing. 176 survey respondents, 7 expert interviews, and three assumptions that didn't survive contact with the data.</p>
+  <div class="byline">
+    <div><b>Author</b>Ambra Caserta</div>
+    <div><b>Method</b>Survey (t-test / ANOVA / Pearson) + thematic interviews</div>
+    <div><b>Sample</b>98 US · 78 Italy</div>
+  </div>
+</header>
+
+<section id="challenge">
+  <p class="num">01</p>
+  <h2>The Challenge</h2>
+  <p class="lede">AI is reshaping fashion marketing through hyper-personalization — but adoption is usually treated as a technical rollout problem, not a psychological and cultural one. I wanted to test, empirically, whether trust in AI actually differs across cultures and generations the way the industry assumes it does, and separate the trends that are real from the ones that are just widely repeated.</p>
+</section>
+
+<section id="approach">
+  <p class="num">02</p>
+  <h2>The Approach</h2>
+  <p class="lede">A mixed-methods design, built to triangulate rather than assume:</p>
+  <div class="grid3">
+    <div class="card">
+      <span class="tag trend">Quant</span>
+      <h3>176 survey responses</h3>
+      <p>98 US, 78 Italy. Eight trust dimensions, four privacy dimensions, 7-point Likert scale. Analyzed with independent-samples t-tests, one-way ANOVA, and Pearson correlations in SPSS.</p>
+    </div>
+    <div class="card">
+      <span class="tag trend">Qual</span>
+      <h3>7 expert interviews</h3>
+      <p>AI strategists, luxury brand leaders, consumer psychologists, and academics across US and Italian markets. Semi-structured, thematically coded (Braun & Clarke, 2006).</p>
+    </div>
+    <div class="card">
+      <span class="tag trend">Scope</span>
+      <h3>What this design can — and can't — claim</h3>
+      <p>A convenience sample at a single point in time. Strong for surfacing directional insight and testing assumptions. Not built for causal or fully generalizable claims — treated accordingly throughout.</p>
+    </div>
+  </div>
+</section>
+
+<section id="findings" class="paper">
+<div class="inner">
+  <p class="num">03</p>
+  <h2>What the Data Actually Showed</h2>
+  <p class="lede">One confirmed finding, two real-but-modest signals, and three popular assumptions that didn't hold up. Here's the confirmed one first — it's the strongest thing in the study.</p>
+
+  <div class="chart-wrap">
+    <h3 style="font-size:1.1rem; color:var(--text-paper);">Trust in AI's human-like decisions, by age group</h3>
+    <svg viewBox="0 0 720 300" style="width:100%; height:auto; margin-top:1rem; font-family:'IBM Plex Mono', monospace;">
+      <line x1="60" y1="240" x2="700" y2="240" stroke="#cfc6b3" stroke-width="1"/>
+      <g>
+        <rect x="90"  y="240" width="70" height="0"   fill="none"/>
+        <rect x="90"  y="98"  width="70" height="142" fill="#c9beac"/>
+        <text x="125" y="90" text-anchor="middle" font-size="12" fill="#5c574e">1.29</text>
+        <text x="125" y="258" text-anchor="middle" font-size="11" fill="#5c574e">18–24</text>
+
+        <rect x="190" y="82" width="70" height="158" fill="#c9beac"/>
+        <text x="225" y="74" text-anchor="middle" font-size="12" fill="#5c574e">1.39</text>
+        <text x="225" y="258" text-anchor="middle" font-size="11" fill="#5c574e">25–34</text>
+
+        <rect x="290" y="63" width="70" height="177" fill="#c9beac"/>
+        <text x="325" y="55" text-anchor="middle" font-size="12" fill="#5c574e">1.46</text>
+        <text x="325" y="258" text-anchor="middle" font-size="11" fill="#5c574e">35–44</text>
+
+        <rect x="390" y="46" width="70" height="194" fill="#c9beac"/>
+        <text x="425" y="38" text-anchor="middle" font-size="12" fill="#5c574e">1.51</text>
+        <text x="425" y="258" text-anchor="middle" font-size="11" fill="#5c574e">45–54</text>
+
+        <rect x="490" y="14" width="70" height="226" fill="#7c2d3b"/>
+        <text x="525" y="6" text-anchor="middle" font-size="12" fill="#7c2d3b" font-weight="600">1.65</text>
+        <text x="525" y="258" text-anchor="middle" font-size="11" fill="#1b1916" font-weight="600">55–64</text>
+
+        <rect x="590" y="105" width="70" height="135" fill="#c9beac"/>
+        <text x="625" y="97" text-anchor="middle" font-size="12" fill="#5c574e">1.24</text>
+        <text x="625" y="258" text-anchor="middle" font-size="11" fill="#5c574e">65–74</text>
+      </g>
+    </svg>
+    <p class="chart-caption">F(5,165) = 2.945, p = .014 — the only trust dimension to reach statistical significance across any grouping in the study. Reproduced from thesis Figure 3.</p>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <span class="tag sig">Significant</span>
+      <h3>The generational pivot</h3>
+      <p>Ages 35–64 trusted AI's human-like decision-making significantly more than younger respondents — the opposite of the "digital native" narrative. "Silver Spenders" may be an underexplored segment for AI product design, not a deprioritized one.</p>
+      <div class="stat">p = .014 (ANOVA)</div>
+    </div>
+    <div class="card">
+      <span class="tag trend">Weak, real signal</span>
+      <h3>Trust is partly cognitive</h3>
+      <p>Privacy- and ethics-sensitive respondents showed a small but significant tendency to better understand how AI works. Not a claim that they trust AI more overall — a signal that transparency may be an underused lever, worth testing further.</p>
+      <div class="stat">r = .202, p &lt; .01 · r = .165, p &lt; .05</div>
+    </div>
+    <div class="card">
+      <span class="tag trend">Directional only</span>
+      <h3>US–Italy: a trend, not a gap</h3>
+      <p>Across 12 measured dimensions, zero reached conventional significance. Two trended in the theoretically expected direction — US slightly higher on AI-human equality, Italy slightly higher on privacy concern.</p>
+      <div class="stat">closest: p = .081 / p = .099</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="backbone" class="paper" style="border-top:none;">
+<div class="inner">
+  <p class="num">03.1</p>
+  <h2>The Research Backbone</h2>
+  <p class="lede">For anyone who wants the receipts: the four hypotheses, the theory that grounded them, and the full country-by-country breakdown.</p>
+
+  <table>
+    <caption>Hypotheses &amp; outcomes</caption>
+    <thead>
+      <tr><th>Hyp.</th><th>Prediction</th><th>Outcome</th><th>What the data showed</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="num">H1</td>
+        <td>US consumers trust AI more than Italians</td>
+        <td><span class="pill not">Not supported</span></td>
+        <td>Small trend on trust_equality (p = .081) — didn't clear significance</td>
+      </tr>
+      <tr>
+        <td class="num">H2</td>
+        <td>Italians more skeptical, driven by privacy/authenticity</td>
+        <td><span class="pill partial">Partial</span></td>
+        <td>Higher on all 4 privacy vars; closest p = .099, directionally consistent</td>
+      </tr>
+      <tr class="sig">
+        <td class="num">H3</td>
+        <td>Younger consumers trust AI more</td>
+        <td><span class="pill strong">Reversed</span></td>
+        <td>35–64 trusted AI's decisions significantly more (p = .014)</td>
+      </tr>
+      <tr>
+        <td class="num">H4</td>
+        <td>Privacy concern is a barrier to trust, more so in Italy</td>
+        <td><span class="pill partial">Partial</span></td>
+        <td>Weak correlations link privacy sensitivity to cognitive understanding, not broader distrust</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="theory-list">
+    <div class="theory">
+      <div><h4>Diffusion of Innovation</h4><span class="yr">Rogers, 1962</span></div>
+      <p>Explains adoption timing across a population by relative advantage, compatibility, and complexity. Framed the expectation of Italy as a more cautious "late majority" market.</p>
+    </div>
+    <div class="theory">
+      <div><h4>Psychological Ownership</h4><span class="yr">Pierce et al., 2003</span></div>
+      <p>Trust increases with control, effort, and investment in a process. Framed why participatory AI experiences might build more trust than fully automated ones.</p>
+    </div>
+    <div class="theory">
+      <div><h4>Cultural Dimensions</h4><span class="yr">Hofstede, 1980</span></div>
+      <p>Uncertainty avoidance and individualism vs. collectivism. Predicted US openness to AI experimentation and Italian caution — a prediction the data only weakly supported.</p>
+    </div>
+    <div class="theory">
+      <div><h4>Trust Theory</h4><span class="yr">Mayer, Davis &amp; Schoorman, 1995</span></div>
+      <p>Trust as willingness to be vulnerable, based on perceived ability, benevolence, and integrity. The organizing lens for every trust dimension in the survey instrument.</p>
+    </div>
+  </div>
+
+  <div class="chart-wrap" style="margin-top:3.5rem;">
+    <h3 style="font-size:1.1rem; color:var(--text-paper);">Trust in AI-powered fashion marketing, by country</h3>
+    <svg viewBox="0 0 760 320" style="width:100%; height:auto; margin-top:1rem;">
+      <line x1="50" y1="260" x2="740" y2="260" stroke="#cfc6b3" stroke-width="1"/>
+      <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#5c574e">
+        <rect x="60"  y="102" width="20" height="158" fill="#22395c"/>
+        <rect x="82"  y="111" width="20" height="149" fill="#7c2d3b"/>
+        <text x="81"  y="275" text-anchor="middle">Style</text>
+
+        <rect x="145" y="87"  width="20" height="173" fill="#22395c"/>
+        <rect x="167" y="85"  width="20" height="175" fill="#7c2d3b"/>
+        <text x="166" y="275" text-anchor="middle">Underst.</text>
+
+        <rect x="230" y="85" width="20" height="175" fill="#22395c"/>
+        <rect x="252" y="85" width="20" height="175" fill="#7c2d3b"/>
+        <text x="251" y="275" text-anchor="middle">Connect</text>
+
+        <rect x="315" y="85" width="20" height="175" fill="#22395c"/>
+        <rect x="337" y="102" width="20" height="158" fill="#7c2d3b"/>
+        <text x="336" y="275" text-anchor="middle">Ethical</text>
+
+        <rect x="400" y="78" width="20" height="182" fill="#22395c"/>
+        <rect x="422" y="102" width="20" height="158" fill="#7c2d3b"/>
+        <text x="421" y="275" text-anchor="middle">Equality</text>
+
+        <rect x="485" y="107" width="20" height="153" fill="#22395c"/>
+        <rect x="507" y="100" width="20" height="160" fill="#7c2d3b"/>
+        <text x="506" y="275" text-anchor="middle">Social</text>
+
+        <rect x="570" y="94" width="20" height="166" fill="#22395c"/>
+        <rect x="592" y="112" width="20" height="148" fill="#7c2d3b"/>
+        <text x="591" y="275" text-anchor="middle">Time</text>
+
+        <rect x="655" y="101" width="20" height="159" fill="#22395c"/>
+        <rect x="677" y="93"  width="20" height="167" fill="#7c2d3b"/>
+        <text x="676" y="275" text-anchor="middle">Ease</text>
+      </g>
+    </svg>
+    <div class="legend">
+      <span><i class="swatch" style="background:#22395c"></i>United States</span>
+      <span><i class="swatch" style="background:#7c2d3b"></i>Italy</span>
+    </div>
+    <p class="chart-caption">None of the 8 dimensions reached p &lt; .05. Closest: AI-human equality, p = .081. Reproduced from thesis Figure 1 / Table 1.</p>
+  </div>
+
+  <table>
+    <caption>Full US–Italy comparison — all 12 measured dimensions</caption>
+    <thead>
+      <tr><th>Dimension</th><th>Type</th><th>US mean</th><th>Italy mean</th><th>p-value</th><th>Read</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Style relevance</td><td>Trust</td><td class="num">1.26</td><td class="num">1.19</td><td class="num">.380</td><td>No meaningful diff.</td></tr>
+      <tr><td>Understandability</td><td>Trust</td><td class="num">1.38</td><td class="num">1.40</td><td class="num">.751</td><td>No meaningful diff.</td></tr>
+      <tr><td>Connection</td><td>Trust</td><td class="num">1.40</td><td class="num">1.40</td><td class="num">.946</td><td>No meaningful diff.</td></tr>
+      <tr><td>Ethical choice</td><td>Trust</td><td class="num">1.40</td><td class="num">1.32</td><td class="num">.309</td><td>No meaningful diff.</td></tr>
+      <tr class="sig"><td>AI–human equality</td><td>Trust</td><td class="num">1.46</td><td class="num">1.32</td><td class="num">.081</td><td>Closest to sig. — US lean</td></tr>
+      <tr><td>Social proof</td><td>Trust</td><td class="num">1.25</td><td class="num">1.29</td><td class="num">.632</td><td>No meaningful diff.</td></tr>
+      <tr><td>Time efficiency</td><td>Trust</td><td class="num">1.35</td><td class="num">1.23</td><td class="num">.122</td><td>No meaningful diff.</td></tr>
+      <tr><td>Ease of use</td><td>Trust</td><td class="num">1.27</td><td class="num">1.35</td><td class="num">.264</td><td>No meaningful diff.</td></tr>
+      <tr class="sig"><td>General concern</td><td>Privacy</td><td class="num">1.11</td><td class="num">1.21</td><td class="num">.099</td><td>Closest to sig. — Italy lean</td></tr>
+      <tr><td>Respect for privacy</td><td>Privacy</td><td class="num">1.43</td><td class="num">1.52</td><td class="num">.282</td><td>No meaningful diff.</td></tr>
+      <tr><td>Fear of misuse</td><td>Privacy</td><td class="num">1.32</td><td class="num">1.38</td><td class="num">.517</td><td>No meaningful diff.</td></tr>
+      <tr><td>Discomfort sharing</td><td>Privacy</td><td class="num">1.41</td><td class="num">1.49</td><td class="num">.318</td><td>No meaningful diff.</td></tr>
+    </tbody>
+  </table>
+  <p class="chart-caption" style="margin-top:1rem;">Bottom line: this study did not find a statistically confirmed US–Italy trust gap. The trends it did find point in the direction existing theory would predict — a larger sample is the natural next step.</p>
+
+  <table>
+    <caption>Expert interview panel (anonymized)</caption>
+    <thead>
+      <tr><th>Code</th><th>Expertise</th><th>Region</th><th>Contributed</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">P1</td><td>AI Strategy, Ethics, Analytics</td><td>US</td><td>Trust frameworks, data governance</td></tr>
+      <tr><td class="num">P2</td><td>Consumer Psychology, Sustainability</td><td>US / Global</td><td>Emotional trust, generational segmentation</td></tr>
+      <tr><td class="num">P3</td><td>Fashion Branding, Content</td><td>US</td><td>Influencer-driven AI marketing</td></tr>
+      <tr><td class="num">P4</td><td>Growth Strategy, SaaS AI</td><td>US / Global</td><td>Behavioral science, LTV modeling</td></tr>
+      <tr><td class="num">P5</td><td>Retail Tech VC, Fashion Innovation</td><td>APAC / Global</td><td>Human–AI experiences, investment logic</td></tr>
+      <tr><td class="num">P6</td><td>Luxury Fashion Strategy, CRM</td><td>Italy</td><td>Personalization, cultural trust</td></tr>
+      <tr><td class="num">P7</td><td>Academic Thought Leadership</td><td>Global</td><td>Symbolic consumption, peer trust</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section id="application">
+  <p class="num">04</p>
+  <h2>The Application</h2>
+  <p class="lede">One confirmed finding, two exploratory signals. Here's how each translates into practice — held to the same evidentiary weight it earned.</p>
+  <div class="grid2">
+    <div class="card">
+      <span class="tag sig">From the confirmed finding</span>
+      <h3>Don't default to "younger = more receptive"</h3>
+      <p>The only statistically confirmed result in this study contradicts the industry default. Any AI rollout strategy should test age-segment assumptions directly rather than inherit them.</p>
+    </div>
+    <div class="card">
+      <span class="tag trend">From the exploratory signal</span>
+      <h3>Treat transparency as a trust lever, not just compliance</h3>
+      <p>The modest link between ethical attentiveness and desire to understand AI systems makes explainable AI (XAI) — plain-language reasons behind a recommendation — worth testing with privacy-conscious segments.</p>
+    </div>
+    <div class="card">
+      <span class="tag trend">From the directional trend</span>
+      <h3>Localize as a hypothesis, not a playbook</h3>
+      <p>Culturally adapted AI messaging — efficiency framing in the US, heritage framing in Italy — is a reasonable A/B test, supported by qualitative interviews, but not something the survey data alone confirms.</p>
+    </div>
+    <div class="card">
+      <span class="tag sig">From the process itself</span>
+      <h3>Calibrated uncertainty is a deliverable</h3>
+      <p>Separating "significant," "trending," and "not supported" — instead of collapsing them into one confident story — is what makes downstream recommendations trustworthy to the people who'll act on them.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="note">Full thesis, methodology, survey instrument, and interview guide available on request. All statistics reproduced from the original SPSS output.</div>
+  <a class="back" href="#">↑ Back to top</a>
+</footer>
+
+</body>
+</html>
