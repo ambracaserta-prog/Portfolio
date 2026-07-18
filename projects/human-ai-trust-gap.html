@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Human-AI Trust Gap | Ambra Caserta</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .case-header {
+            max-width: var(--max-width);
+            margin: 56px auto 0;
+            padding: 0 0 32px;
+        }
+        .back-link {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            border-bottom: none;
+            margin-bottom: 24px;
+        }
+        .back-link:hover {
+            color: var(--teal-dark);
+        }
+        .case-header h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin: 0 0 10px;
+            color: var(--ink);
+        }
+        .case-header .kicker {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--teal);
+            margin: 0;
+        }
+        .case-section h3 {
+            margin: 56px auto 20px;
+        }
+        .case-section h3:first-of-type {
+            margin-top: 8px;
+        }
+        .chart-card {
+            max-width: var(--max-width);
+            margin: 0 auto 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            box-shadow: var(--shadow);
+        }
+        .chart-card .caption {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            margin: 14px 0 0;
+        }
+        .chart-wrap {
+            position: relative;
+            width: 100%;
+            height: 280px;
+        }
+        .heatmap-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.85rem;
+        }
+        .heatmap-table th {
+            padding: 8px;
+            text-align: center;
+            color: var(--ink-soft);
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+        .heatmap-table th:first-child,
+        .heatmap-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: var(--ink-soft);
+            white-space: nowrap;
+        }
+        .heatmap-table td {
+            padding: 14px;
+            text-align: center;
+            border-radius: 6px;
+        }
+        .footnote {
+            max-width: var(--max-width);
+            margin: 32px auto 0;
+            padding: 20px 32px;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            border-top: 1px solid var(--border);
+        }
+        .legend {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            font-size: 0.78rem;
+            color: var(--ink-soft);
+        }
+        .legend span.swatch {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="case-header">
+        <a href="../index.html" class="back-link">&larr; Back to portfolio</a>
+        <p class="kicker">AI Adoption Research &bull; Organizational Readiness &bull; Cross-Cultural Consumer Behavior</p>
+        <h1>The Human-AI Trust Gap</h1>
+    </div>
+
+    <div class="case-section">
+
+    <h3>The Problem</h3>
+    <div class="project-card">
+        <p>
+            Fashion brands are investing heavily in AI-driven personalization &mdash; virtual try-ons, chatbots, recommendation engines &mdash; but adoption keeps stalling. The industry assumption was that resistance came from technical friction. My research asked a different question: what if the barrier isn't capability, but trust?
+        </p>
+    </div>
+
+    <h3>Approach</h3>
+    <div class="project-card">
+        <p>
+            I designed a mixed-methods study (n=176; 98 U.S., 78 Italy) combining a 7-point Likert survey across eight trust dimensions and four privacy variables with seven semi-structured interviews with a cross-functional, cross-cultural expert panel &mdash; AI strategists, consumer psychologists, luxury brand leaders, retail VCs.
+        </p>
+        <p>
+            Quantitative analysis used independent-samples t-tests, one-way ANOVA with Tukey HSD post-hoc tests, and Pearson correlations in SPSS; qualitative data was coded using Braun &amp; Clarke's (2006) thematic analysis. The two-country design let me test whether trust in AI is culturally universal or context-dependent.
+        </p>
+    </div>
+
+    <h3>Key Insight</h3>
+    <div class="project-card">
+        <p>
+            <strong>The &ldquo;digital native&rdquo; assumption was wrong.</strong> I hypothesized younger consumers would trust AI's decision-making most. Instead, the 35&ndash;64 cohort rated AI significantly more favorably than younger respondents (F(5,165) = 2.945, <em>p</em> = .014). One expert described younger users experiencing &ldquo;polarization&rdquo; &mdash; some embracing AI as efficient, others finding it emotionally hollow &mdash; while another noted that &ldquo;frequent use does not necessarily equate to deep trust.&rdquo;
+        </p>
+    </div>
+
+    <div class="chart-card">
+        <div class="chart-wrap">
+            <canvas id="ageChart" role="img" aria-label="Bar chart of mean AI trust equality score by age group. 18 to 24: 1.29. 25 to 34: 1.39. 35 to 44: 1.47. 45 to 54: 1.51. 55 to 64: 1.65, the highest, highlighted. 65 to 74: 1.24.">Age group trust scores: 18-24: 1.29, 25-34: 1.39, 35-44: 1.47, 45-54: 1.51, 55-64: 1.65, 65-74: 1.24.</canvas>
+        </div>
+        <p class="caption">Mean trust in AI's human-like decision-making, by age group. The 55&ndash;64 cohort (highlighted) trusted AI's judgment more than any other group, including Gen Z.</p>
+    </div>
+
+    <div class="project-card">
+        <p>
+            <strong>Privacy concern predicts understanding, not rejection.</strong> Consumers with higher ethical sensitivity around data misuse and privacy respect also reported <em>better</em> cognitive understanding of how AI systems work (r = .202, <em>p</em> &lt; .01 and r = .165, <em>p</em> &lt; .05). The people most worried about AI aren't opting out &mdash; they're paying closer attention.
+        </p>
+    </div>
+
+    <div class="chart-card">
+        <table class="heatmap-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Privacy concern</th>
+                    <th>Trust understand</th>
+                    <th>Trust style</th>
+                    <th>Trust ease of use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Privacy concern</th>
+                    <td style="background: #2F6F62; color: #fff; font-weight: 600;">1.00</td>
+                    <td style="background: rgba(47,111,98,0.30);">0.20</td>
+                    <td style="background: rgba(47,111,98,0.24);">0.16</td>
+                    <td style="background: rgba(201,138,62,0.16);">-0.08</td>
+                </tr>
+                <tr>
+                    <th>Trust understand</th>
+                    <td style="background: rgba(47,111,98,0.30);">0.20</td>
+                    <td style="background: #2F6F62; color: #fff; font-weight: 600;">1.00</td>
+                    <td style="background: var(--bg);">0.00</td>
+                    <td style="background: rgba(47,111,98,0.08);">0.05</td>
+                </tr>
+                <tr>
+                    <th>Trust style</th>
+                    <td style="background: rgba(47,111,98,0.24);">0.16</td>
+                    <td style="background: var(--bg);">0.00</td>
+                    <td style="background: #2F6F62; color: #fff; font-weight: 600;">1.00</td>
+                    <td style="background: rgba(201,138,62,0.14);">-0.07</td>
+                </tr>
+                <tr>
+                    <th>Trust ease of use</th>
+                    <td style="background: rgba(201,138,62,0.16);">-0.08</td>
+                    <td style="background: rgba(47,111,98,0.08);">0.05</td>
+                    <td style="background: rgba(201,138,62,0.14);">-0.07</td>
+                    <td style="background: #2F6F62; color: #fff; font-weight: 600;">1.00</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="legend">
+            <span class="swatch" style="background: #2F6F62;"></span>positive correlation
+            <span class="swatch" style="background: rgba(201,138,62,0.5);"></span>negative correlation
+        </div>
+        <p class="caption">Pearson correlations between privacy concern and three trust dimensions. Privacy concern correlates most with understanding AI (0.20) &mdash; not with lower trust overall.</p>
+    </div>
+
+    <h3>Engineering Maturity Lesson</h3>
+    <div class="project-card">
+        <p>
+            This project shifted how I think about &ldquo;done.&rdquo; A technically sound recommendation engine can still fail if it has no governance layer around it. The real tradeoff isn't automation vs. control &mdash; it's efficiency vs. psychological ownership. My recommendation was a hybrid-assistant model: AI handles scale and personalization, while an explainability layer (&ldquo;why we recommended this&rdquo;) and human oversight preserve user agency. Transparency isn't a compliance checkbox; it's a reliability requirement, the same way error handling is a reliability requirement in a technical system.
+        </p>
+    </div>
+
+    </div>
+
+    <p class="footnote">
+        Methodology note: sample was non-probabilistic (Qualtrics panel), limited to two countries, and captured a single point in time &mdash; flagged transparently in the original thesis as boundaries on generalizability, not as flaws to hide.
+    </p>
+
+    <footer>
+        <p>&copy; 2026 Ambra Caserta. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script>
+        const labels = ['18-24','25-34','35-44','45-54','55-64','65-74'];
+        const data = [1.29,1.39,1.47,1.51,1.65,1.24];
+        const colors = data.map((v,i) => i === 4 ? '#2F6F62' : '#D9DAD1');
+        new Chart(document.getElementById('ageChart'), {
+            type: 'bar',
+            data: { labels, datasets: [{ data, backgroundColor: colors, borderRadius: 4, maxBarThickness: 44 }] },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => 'Mean trust score: ' + c.parsed.y.toFixed(2) } } },
+                scales: {
+                    y: { beginAtZero: true, max: 2, grid: { color: '#E1E5DE' }, ticks: { color: '#4B5560' } },
+                    x: { grid: { display: false }, ticks: { color: '#4B5560' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
