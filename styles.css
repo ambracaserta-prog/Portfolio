@@ -127,7 +127,7 @@ body {
   animation-delay: 0.9s;
 }
 
-.sparkline circle {
+.sparkline .arrowhead {
   opacity: 0;
   animation: fadeUp 0.4s ease forwards;
   animation-delay: 1.9s;
