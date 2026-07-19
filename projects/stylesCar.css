@@ -10,6 +10,9 @@ body {
   background: #f9f6f1;
   color: #2c2c2c;
   line-height: 1.7;
+  /* ADD THESE: */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ── Navigation ── */
@@ -557,4 +560,10 @@ code {
   .learnings-grid {
     grid-template-columns: 1fr;
   }
+}
+/* ADD THIS ANYWHERE IN YOUR CSS */
+a:focus,
+button:focus {
+  outline: 2px solid #c8a97e;
+  outline-offset: 3px;
 }
