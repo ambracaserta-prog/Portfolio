@@ -461,29 +461,27 @@ a:hover {
 .hero-inner > p                { animation-delay: 0.35s; }
 .hero-inner > .sparkline       { animation-delay: 0.50s; }
 
-/* ============================================================
-   SPARKLINE
-   ============================================================ */
+/* ---------- Sparkline ---------- */
 
 .sparkline {
   display: block;
-  width: 140px;
-  height: 40px;
+  width: 160px;
+  height: 44px;
   margin: 28px auto 0;
   overflow: visible;
 }
 
 .spark-line {
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
-  animation: drawLine 1.4s ease forwards;
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  animation: drawLine 1.6s ease forwards;
   animation-delay: 0.8s;
 }
 
 .spark-arrow {
   opacity: 0;
   animation: fadeIn 0.3s ease forwards;
-  animation-delay: 2.1s;
+  animation-delay: 2.3s;  /* fires exactly when line finishes */
 }
 
 @keyframes drawLine {
@@ -492,6 +490,28 @@ a:hover {
 
 @keyframes fadeIn {
   to { opacity: 1; }
+}
+
+/* ---------- Hero h2 centered ---------- */
+
+.hero h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--crimson);
+  margin: 0 0 20px;
+  text-align: center;       /* ← force center */
+  width: 100%;
+}
+
+/* ---------- Customer Intelligence pill color ---------- */
+
+.skills-card:nth-of-type(1) .pill {
+  color: #A86B74;
+  background: rgba(168, 107, 116, 0.10);
+  border: 1px solid rgba(168, 107, 116, 0.28);
 }
 
 
