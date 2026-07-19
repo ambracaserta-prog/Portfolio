@@ -129,7 +129,7 @@
           <div class="chart-bar-row">
             <span class="bar-model">M1</span>
             <div class="bar-wrap">
-              <div class="bar bad" style="width: 100%">
+              <div class="bar bad" style="width: 60%">
                 <span class="bar-score">14,789</span>
               </div>
             </div>
@@ -138,7 +138,7 @@
           <div class="chart-bar-row">
             <span class="bar-model">M3</span>
             <div class="bar-wrap">
-              <div class="bar mid" style="width: 75%">
+              <div class="bar bad" style="width: 100%">
                 <span class="bar-score">24,810</span>
               </div>
             </div>
@@ -147,7 +147,7 @@
           <div class="chart-bar-row">
             <span class="bar-model">M6</span>
             <div class="bar-wrap">
-              <div class="bar mid" style="width: 46%">
+              <div class="bar mid" style="width: 40%">
                 <span class="bar-score">9,826</span>
               </div>
             </div>
@@ -156,7 +156,7 @@
           <div class="chart-bar-row">
             <span class="bar-model">M8</span>
             <div class="bar-wrap">
-              <div class="bar good" style="width: 30%">
+              <div class="bar mid" style="width: 26%">
                 <span class="bar-score">6,252</span>
               </div>
             </div>
@@ -165,7 +165,7 @@
           <div class="chart-bar-row">
             <span class="bar-model">M15</span>
             <div class="bar-wrap">
-              <div class="bar good" style="width: 18%">
+              <div class="bar good" style="width: 15%">
                 <span class="bar-score">3,649</span>
               </div>
             </div>
@@ -174,7 +174,7 @@
           <div class="chart-bar-row">
             <span class="bar-model">M18 ★</span>
             <div class="bar-wrap">
-              <div class="bar best" style="width: 16%">
+              <div class="bar best" style="width: 14%">
                 <span class="bar-score">3,420</span>
               </div>
             </div>
@@ -224,7 +224,7 @@
           </div>
           <p>
             27 predictors, mtry=12, 1,000 trees, variance splitting.
-            Added torque_lb and make_name pushed generalization
+            Adding torque_lb and make_name pushed generalization
             significantly — test and Kaggle scores finally aligned.
           </p>
         </div>
@@ -263,72 +263,58 @@
     <section class="project-section">
       <h2 class="section-heading">Key Learnings</h2>
       <div class="learnings-grid">
+
         <div class="learning-card">
           <span class="learning-icon">🗂️</span>
           <h4>Structured Methodology</h4>
           <p>Properly defined objectives and preprocessing steps gave
           direction and focus throughout the month-long competition.</p>
         </div>
+
         <div class="learning-card">
           <span class="learning-icon">🔍</span>
           <h4>Data Exploration</h4>
           <p>Closely examining patterns revealed biases, outliers, and
-          relevant features that raw intuition would have missed.</p>
+          relevant features that raw statistics alone would have missed.</p>
         </div>
+
         <div class="learning-card">
-          <span class="learning-icon">⚙️</span>
-          <h4>Feature Engineering</h4>
-          <p>Encoding categoricals and extracting domain features
-          (like torque from text) meaningfully improved model performance.</p>
-        </div>
-        <div class="learning-card">
-          <span class="learning-icon">🔁</span>
-          <h4>Iteration Over Perfection</h4>
-          <p>Each of 19 models taught something new. The gap between
-          training RMSE and Kaggle score was the most valuable
-          teacher of all.</p>
-        </div>
-        <div class="learning-card">
-          <span class="learning-icon">⚖️</span>
-          <h4>Complexity vs. Generalization</h4>
-          <p>More variables and trees don't always win. Tuning mtry,
-          node size, and pruning features mattered more than
-          adding predictors.</p>
-        </div>
-        <div class="learning-card">
-          <span class="learning-icon">📉</span>
+          <span class="learning-icon">⚠️</span>
           <h4>Overfitting is Deceptive</h4>
-          <p>Model 3's 5,036 test RMSE felt like success — until
-          Kaggle returned 24,810. Leaderboard feedback was
-          humbling and essential.</p>
+          <p>A low training RMSE means nothing if the model can't
+          generalize. Model 3 taught this lesson better than any textbook.</p>
         </div>
+
+        <div class="learning-card">
+          <span class="learning-icon">🔄</span>
+          <h4>Iteration is Everything</h4>
+          <p>Each of the 19 models built on the last. Small, deliberate
+          changes — not big overhauls — drove the biggest improvements.</p>
+        </div>
+
+        <div class="learning-card">
+          <span class="learning-icon">🧠</span>
+          <h4>Domain Knowledge Matters</h4>
+          <p>Understanding cars — what drives value, what buyers care
+          about — shaped better features than algorithmic selection alone.</p>
+        </div>
+
+        <div class="learning-card">
+          <span class="learning-icon">📊</span>
+          <h4>Ensemble Methods Win</h4>
+          <p>Random Forest and XGBoost consistently outperformed linear
+          models by capturing non-linear relationships in the data.</p>
+        </div>
+
       </div>
     </section>
 
-    <!-- Tools -->
-    <section class="project-section">
-      <h2 class="section-heading">Tools &amp; Methods</h2>
-      <div class="pill-group">
-        <span class="pill">R</span>
-        <span class="pill">Random Forest (ranger)</span>
-        <span class="pill">XGBoost</span>
-        <span class="pill">caret</span>
-        <span class="pill">Linear Regression</span>
-        <span class="pill">Cross-Validation</span>
-        <span class="pill">ggcorrplot</span>
-        <span class="pill">Feature Engineering</span>
-        <span class="pill">Kaggle</span>
-        <span class="pill">olsrr</span>
-        <span class="pill">leaps</span>
-      </div>
+    <!-- Footer CTA -->
+    <section class="project-section project-footer-cta">
+      <a href="../index.html" class="btn-back">← Back to All Projects</a>
     </section>
 
-  </div><!-- end project-content -->
-
-  <footer>
-    <p>© 2026 Ambra Caserta. All rights reserved.</p>
-    <p><a href="../index.html">← Back to Portfolio</a></p>
-  </footer>
+  </div><!-- /.project-content -->
 
 </body>
 </html>
