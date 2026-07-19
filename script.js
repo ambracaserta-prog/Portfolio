@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroInner) {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('class', 'sparkline');
-    svg.setAttribute('viewBox', '0 0 160 44');
+    svg.setAttribute('viewBox', '0 0 165 44');
     svg.setAttribute('fill', 'none');
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
@@ -28,13 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
         stroke-linejoin="round"
         fill="none"
       />
+// ADD after your setAttribute lines:
+svg.setAttribute('aria-hidden', 'true');
+svg.setAttribute('focusable', 'false');
 
       <!-- Arrow tip at 142,8 — shorter arms, tighter angle -->
-      <line class="spark-arrow" x1="142" y1="8" x2="136" y2="12" stroke="#c0956a" stroke-width="2.2" stroke-linecap="round"/>
-      <line class="spark-arrow" x1="142" y1="8" x2="136" y2="4"  stroke="#c0956a" stroke-width="2.2" stroke-linecap="round"/>
+     // REPLACE your two arrow lines with this:
+<line class="spark-arrow" x1="136" y1="4"  x2="142" y2="8" stroke="#c0956a" stroke-width="2.2" stroke-linecap="round"/>
+<line class="spark-arrow" x1="136" y1="12" x2="142" y2="8" stroke="#c0956a" stroke-width="2.2" stroke-linecap="round"/>
     `;
 
-    heroInner.appendChild(svg);
+  if (svg) heroInner.appendChild(svg);
   }
 
   // ---- 2. Scroll-reveal ----
