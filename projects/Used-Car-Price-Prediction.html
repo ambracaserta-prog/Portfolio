@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Used Car Price Prediction — Ambra Caserta</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-back">← Back to Portfolio</a>
+    </div>
+  </nav>
+
+  <!-- ── Project Hero (dark band) ── -->
+  <div class="project-hero">
+    <div class="project-hero-inner">
+      <div class="project-breadcrumb">
+        <span class="breadcrumb-line"></span>
+        <span>Predictive Analytics</span>
+        <span class="breadcrumb-dot">·</span>
+        <span>Machine Learning</span>
+      </div>
+      <h1 class="project-title">
+        Used Car <em>Price</em><br>Prediction
+      </h1>
+      <p class="project-subtitle">
+        A Kaggle-style competition predicting used car sale prices using
+        19 iterative models — from simple linear regression to tuned
+        Random Forest and XGBoost ensembles.
+      </p>
+      <div class="project-meta-row">
+        <div class="project-meta-item">
+          <span class="meta-label">Course</span>
+          <span class="meta-value">Predictive Analytics — Prof. Vishal Lala</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="meta-label">Timeline</span>
+          <span class="meta-value">Spring 2024 · 1 Month</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="meta-label">Models Built</span>
+          <span class="meta-value">19</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="meta-label">Best Kaggle Score</span>
+          <span class="meta-value">3,420 RMSE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Light content area ── -->
+  <div class="project-content">
+
+    <!-- Overview -->
+    <section class="project-section">
+      <h2 class="section-heading">The Challenge</h2>
+      <p>
+        Predict the sale price of used cars based on their features and
+        conditions using real-world datasets. Daily Kaggle submissions were
+        made over one month, with success measured by minimizing Root Mean
+        Squared Error (RMSE) on unseen scoring data.
+      </p>
+      <p>
+        The core challenge was not just building accurate models — it was
+        understanding <strong>why</strong> some models that performed well
+        in training failed spectacularly on the leaderboard.
+      </p>
+    </section>
+
+    <!-- Methodology -->
+    <section class="project-section">
+      <h2 class="section-heading">The Approach</h2>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <span class="approach-number">01</span>
+          <h3>Data Pre-processing</h3>
+          <p>Cleaned datasets, addressed missing values via mean/median
+          imputation grouped by car make, and extracted numeric values
+          from character variables (e.g. torque lb). Generated correlation
+          plots using <code>ggcorrplot</code>.</p>
+        </div>
+        <div class="approach-card">
+          <span class="approach-number">02</span>
+          <h3>Feature Engineering</h3>
+          <p>Transformed categorical variables into dummy variables.
+          Engineered domain-knowledge features around fuel efficiency,
+          body type, engine specs, and seller reputation.</p>
+        </div>
+        <div class="approach-card">
+          <span class="approach-number">03</span>
+          <h3>Model Building</h3>
+          <p>Explored a range from simple linear regression to ensemble
+          methods using <code>olsrr</code>, <code>caret</code>,
+          <code>ranger</code>, <code>xgboost</code>, and
+          <code>leaps</code>. Applied tuning and feature pruning
+          iteratively.</p>
+        </div>
+        <div class="approach-card">
+          <span class="approach-number">04</span>
+          <h3>Iteration & Refinement</h3>
+          <p>19 models submitted. Each iteration informed the next —
+          adjusting <code>mtry</code>, tree count, node size, splitting
+          rules, and predictor sets based on leaderboard feedback.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Model Journey -->
+    <section class="project-section">
+      <h2 class="section-heading">The Model Journey</h2>
+      <p>
+        From a single-predictor baseline to a 27-variable tuned Random
+        Forest — here's how performance evolved across 19 submissions.
+      </p>
+
+      <!-- Score evolution visual -->
+      <div class="score-chart">
+        <div class="chart-label-row">
+          <span>Kaggle Score (RMSE) — lower is better</span>
+        </div>
+        <div class="chart-bars">
+
+          <div class="chart-bar-row">
+            <span class="bar-model">M1</span>
+            <div class="bar-wrap">
+              <div class="bar bad" style="width: 100%">
+                <span class="bar-score">14,789</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-bar-row">
+            <span class="bar-model">M3</span>
+            <div class="bar-wrap">
+              <div class="bar mid" style="width: 75%">
+                <span class="bar-score">24,810</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-bar-row">
+            <span class="bar-model">M6</span>
+            <div class="bar-wrap">
+              <div class="bar mid" style="width: 46%">
+                <span class="bar-score">9,826</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-bar-row">
+            <span class="bar-model">M8</span>
+            <div class="bar-wrap">
+              <div class="bar good" style="width: 30%">
+                <span class="bar-score">6,252</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-bar-row">
+            <span class="bar-model">M15</span>
+            <div class="bar-wrap">
+              <div class="bar good" style="width: 18%">
+                <span class="bar-score">3,649</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-bar-row">
+            <span class="bar-model">M18 ★</span>
+            <div class="bar-wrap">
+              <div class="bar best" style="width: 16%">
+                <span class="bar-score">3,420</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Worst vs Best -->
+    <section class="project-section">
+      <h2 class="section-heading">Contrasting Performance</h2>
+      <div class="contrast-grid">
+
+        <div class="contrast-card worst">
+          <div class="contrast-label">Worst Performer</div>
+          <h3>Model 3 — Random Forest (caret)</h3>
+          <div class="contrast-stats">
+            <div class="stat">
+              <span class="stat-value">5,036</span>
+              <span class="stat-label">Test RMSE</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">24,810</span>
+              <span class="stat-label">Kaggle Score</span>
+            </div>
+          </div>
+          <p>
+            Looked great in training — but a ~17,000 point gap on the
+            leaderboard revealed severe overfitting and poor generalization
+            to unseen scoring data.
+          </p>
+        </div>
+
+        <div class="contrast-card best">
+          <div class="contrast-label">Best Performer</div>
+          <h3>Model 18 — Ranger Forest</h3>
+          <div class="contrast-stats">
+            <div class="stat">
+              <span class="stat-value">3,733</span>
+              <span class="stat-label">Test RMSE</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">3,420</span>
+              <span class="stat-label">Kaggle Score</span>
+            </div>
+          </div>
+          <p>
+            27 predictors, mtry=12, 1,000 trees, variance splitting.
+            Added torque_lb and make_name pushed generalization
+            significantly — test and Kaggle scores finally aligned.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Key Predictors -->
+    <section class="project-section">
+      <h2 class="section-heading">What Actually Predicted Price</h2>
+      <div class="predictor-group">
+        <h4>Strongest Predictors</h4>
+        <div class="pill-group">
+          <span class="pill">Horsepower</span>
+          <span class="pill">Engine Displacement</span>
+          <span class="pill">Torque (lb)</span>
+          <span class="pill">Make / Model</span>
+          <span class="pill">Year</span>
+          <span class="pill">Mileage</span>
+        </div>
+      </div>
+      <div class="predictor-group">
+        <h4>Supporting Predictors</h4>
+        <div class="pill-group">
+          <span class="pill">Seller Rating</span>
+          <span class="pill">Franchise Dealer</span>
+          <span class="pill">Days on Market</span>
+          <span class="pill">Body Type (SUV/Pickup/Coupe)</span>
+          <span class="pill">Fuel Economy</span>
+          <span class="pill">Vehicle Dimensions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Learnings -->
+    <section class="project-section">
+      <h2 class="section-heading">Key Learnings</h2>
+      <div class="learnings-grid">
+        <div class="learning-card">
+          <span class="learning-icon">🗂️</span>
+          <h4>Structured Methodology</h4>
+          <p>Properly defined objectives and preprocessing steps gave
+          direction and focus throughout the month-long competition.</p>
+        </div>
+        <div class="learning-card">
+          <span class="learning-icon">🔍</span>
+          <h4>Data Exploration</h4>
+          <p>Closely examining patterns revealed biases, outliers, and
+          relevant features that raw intuition would have missed.</p>
+        </div>
+        <div class="learning-card">
+          <span class="learning-icon">⚙️</span>
+          <h4>Feature Engineering</h4>
+          <p>Encoding categoricals and extracting domain features
+          (like torque from text) meaningfully improved model performance.</p>
+        </div>
+        <div class="learning-card">
+          <span class="learning-icon">🔁</span>
+          <h4>Iteration Over Perfection</h4>
+          <p>Each of 19 models taught something new. The gap between
+          training RMSE and Kaggle score was the most valuable
+          teacher of all.</p>
+        </div>
+        <div class="learning-card">
+          <span class="learning-icon">⚖️</span>
+          <h4>Complexity vs. Generalization</h4>
+          <p>More variables and trees don't always win. Tuning mtry,
+          node size, and pruning features mattered more than
+          adding predictors.</p>
+        </div>
+        <div class="learning-card">
+          <span class="learning-icon">📉</span>
+          <h4>Overfitting is Deceptive</h4>
+          <p>Model 3's 5,036 test RMSE felt like success — until
+          Kaggle returned 24,810. Leaderboard feedback was
+          humbling and essential.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="project-section">
+      <h2 class="section-heading">Tools &amp; Methods</h2>
+      <div class="pill-group">
+        <span class="pill">R</span>
+        <span class="pill">Random Forest (ranger)</span>
+        <span class="pill">XGBoost</span>
+        <span class="pill">caret</span>
+        <span class="pill">Linear Regression</span>
+        <span class="pill">Cross-Validation</span>
+        <span class="pill">ggcorrplot</span>
+        <span class="pill">Feature Engineering</span>
+        <span class="pill">Kaggle</span>
+        <span class="pill">olsrr</span>
+        <span class="pill">leaps</span>
+      </div>
+    </section>
+
+  </div><!-- end project-content -->
+
+  <footer>
+    <p>© 2026 Ambra Caserta. All rights reserved.</p>
+    <p><a href="../index.html">← Back to Portfolio</a></p>
+  </footer>
+
+</body>
+</html>
