@@ -219,11 +219,13 @@
         <h3>Validate &amp; diagnose</h3>
         <p>Compared training/test RMSE against the actual Kaggle score every day. When the two diverged sharply, treated it as a generalization problem to investigate — not a model to abandon.</p>
       </div>
-    </div>
-    <div class="tools-row">
-      <span class="pill">olsrr</span><span class="pill">caret</span><span class="pill">ranger</span><span class="pill">xgboost</span><span class="pill">leaps</span><span class="pill">ggcorrplot</span><span class="pill">10-fold CV</span>
-    </div>
+   <div class="chart-card" style="margin-top:26px;">
+  <div class="chart-top">
+    <h3>Correlation matrix of numeric predictors</h3>
+    <div class="note">Reproduced from the original PAC report (ggcorrplot output).</div>
   </div>
+  <img src="correlation-heatmap.png" alt="Correlation heatmap of numeric car-listing predictors, generated with ggcorrplot" style="width:100%;border-radius:6px;margin-top:14px;filter:brightness(0.97);">
+</div>
 </section>
 
 <section class="block" id="findings">
