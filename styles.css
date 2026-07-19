@@ -6,16 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #F5F7F3;
-  --bg-card: #FFFFFF;
-  --ink: #20262B;
-  --ink-soft: #4B5560;
-  --teal: #2F6F62;
-  --teal-dark: #234F45;
-  --amber: #C98A3E;
-  --border: #E1E5DE;
-  --shadow: 0 4px 20px rgba(32, 38, 43, 0.06);
-  --shadow-hover: 0 10px 30px rgba(32, 38, 43, 0.10);
+  --bg: #141414;
+  --bg-card: #1e1e1e;
+  --ink: #e8e4dc;
+  --ink-soft: #9a9590;
+  --teal: #a83232;        /* replaced with the crimson/red accent */
+  --teal-dark: #7a2020;
+  --amber: #c0956a;       /* kept warm but muted to match the palette */
+  --border: #2e2e2e;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.55);
   --radius: 14px;
   --max-width: 780px;
 }
@@ -351,21 +351,23 @@ a:focus-visible,
     stroke-dashoffset: 0 !important;
   }
 }
+
 footer {
-    margin-top: 50px;
-    padding: 20px;
-    text-align: center;
-    color: #64748b;
-    border-top: 1px solid #e2e8f0;
-    width: 100%;
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--border);
+  width: 100%;
 }
+
 /* ---------- Sticky nav ---------- */
 
 .site-nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(245, 247, 243, 0.92);
+  background: rgba(20, 20, 20, 0.92);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--border);
 }
@@ -424,9 +426,9 @@ h3, .hero {
   font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--teal-dark);
-  background: rgba(47, 111, 98, 0.10);
-  border: 1px solid rgba(47, 111, 98, 0.25);
+  color: var(--ink);
+  background: rgba(168, 50, 50, 0.12);
+  border: 1px solid rgba(168, 50, 50, 0.28);
   border-radius: 999px;
   padding: 6px 14px;
 }
@@ -456,7 +458,7 @@ h3, .hero {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--amber);
-  background: rgba(201, 138, 62, 0.12);
+  background: rgba(192, 149, 106, 0.14);
   border-radius: 6px;
   padding: 4px 10px;
   margin-bottom: 12px;
