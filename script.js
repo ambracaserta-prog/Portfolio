@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.setAttribute('fill', 'none');
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
-    // Define points — last two points determine arrow angle
-    // Last point: 150,6   Second-to-last: 130,10
     svg.innerHTML = `
       <defs>
         <linearGradient id="sparklineGradient" x1="0" y1="0" x2="1" y2="0">
@@ -20,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </linearGradient>
       </defs>
 
-      <!-- Line stops at 142,8 — arrow tip starts exactly there -->
+      <!-- Line ends exactly at 142,8 -->
       <polyline
         class="spark-line"
         points="4,36 24,30 44,34 64,20 84,24 104,14 124,16 142,8"
@@ -31,10 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
         fill="none"
       />
 
-      <!-- Arrow: two lines meeting at tip 142,8
-           angled to match the line direction -->
-      <line class="spark-arrow" x1="142" y1="8"  x2="133" y2="14" stroke="#c0956a" stroke-width="2.2" stroke-linecap="round"/>
-      <line class="spark-arrow" x1="142" y1="8"  x2="133" y2="3"  stroke="#c0956a" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Arrow tip at 142,8 — shorter arms, tighter angle -->
+      <line class="spark-arrow" x1="142" y1="8" x2="136" y2="12" stroke="#c0956a" stroke-width="2.2" stroke-linecap="round"/>
+      <line class="spark-arrow" x1="142" y1="8" x2="136" y2="4"  stroke="#c0956a" stroke-width="2.2" stroke-linecap="round"/>
     `;
 
     heroInner.appendChild(svg);
