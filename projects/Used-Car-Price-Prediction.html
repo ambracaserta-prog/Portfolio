@@ -21,9 +21,11 @@
     <div class="project-hero-inner">
       <div class="project-breadcrumb">
         <span class="breadcrumb-line"></span>
-        <span>Predictive Analytics</span>
+        <span>Data Science</span>
         <span class="breadcrumb-dot">·</span>
         <span>Machine Learning</span>
+        <span class="breadcrumb-dot">·</span>
+        <span>Model Optimization</span>
       </div>
       <h1 class="project-title">
         Used Car <em>Price</em><br>Prediction
@@ -57,259 +59,336 @@
   <!-- ── Light content area ── -->
   <div class="project-content">
 
-    <!-- Overview -->
+    <!-- ── THE PROBLEM ── -->
     <section class="project-section">
-      <h2 class="section-heading">The Challenge</h2>
+      <h2 class="section-heading">The Problem</h2>
       <p>
-        Predict the sale price of used cars based on their features and
-        conditions using real-world datasets. Daily Kaggle submissions were
-        made over one month, with success measured by minimizing Root Mean
-        Squared Error (RMSE) on unseen scoring data.
+        The challenge was to accurately predict the market sale price of used
+        cars based on a complex, multi-feature dataset. The primary business
+        risk involved <strong>model overfitting and poor generalization</strong> —
+        initial models performed well during training but failed significantly
+        when evaluated on unseen scoring data.
       </p>
       <p>
-        The core challenge was not just building accurate models — it was
-        understanding <strong>why</strong> some models that performed well
-        in training failed spectacularly on the leaderboard.
+        The clearest sign of failure? A discrepancy of approximately
+        <strong>17,000 points</strong> between training RMSE and the Kaggle
+        leaderboard score — a model that looked nearly perfect internally but
+        collapsed on real-world data.
       </p>
+
+      <!-- Callout box -->
+      <div class="callout-box danger">
+        <span class="callout-icon">⚠️</span>
+        <div>
+          <strong>The Core Risk</strong><br>
+          Model 3 achieved a training RMSE of 5,836 — but scored 24,810 on
+          the Kaggle leaderboard. A 19,000-point gap revealed the model was
+          capturing noise, not signal.
+        </div>
+      </div>
     </section>
 
-    <!-- Methodology -->
+    <!-- ── APPROACH ── -->
     <section class="project-section">
       <h2 class="section-heading">The Approach</h2>
+      <p>
+        I adopted a structured, iterative methodology to improve predictive
+        accuracy and model robustness across four phases.
+      </p>
       <div class="approach-grid">
         <div class="approach-card">
           <span class="approach-number">01</span>
-          <h3>Data Pre-processing</h3>
-          <p>Cleaned datasets, addressed missing values via mean/median
-          imputation grouped by car make, and extracted numeric values
-          from character variables (e.g. torque lb). Generated correlation
-          plots using <code>ggcorrplot</code>.</p>
+          <h3>Preprocessing</h3>
+          <p>Cleaned raw data using mean/median imputation grouped by car
+          make. Extracted numeric values from character variables — e.g.
+          converting raw torque strings into numeric <code>torque_lb</code>
+          values.</p>
         </div>
         <div class="approach-card">
           <span class="approach-number">02</span>
-          <h3>Feature Engineering</h3>
-          <p>Transformed categorical variables into dummy variables.
-          Engineered domain-knowledge features around fuel efficiency,
-          body type, engine specs, and seller reputation.</p>
+          <h3>Exploratory Data Analysis</h3>
+          <p>Built a correlation matrix via <code>ggcorrplot</code> to
+          visualize relationships between vehicle features — fuel economy,
+          dimensions, horsepower — and sale price. Identified key
+          signal variables early.</p>
         </div>
         <div class="approach-card">
           <span class="approach-number">03</span>
-          <h3>Model Building</h3>
-          <p>Explored a range from simple linear regression to ensemble
-          methods using <code>olsrr</code>, <code>caret</code>,
-          <code>ranger</code>, <code>xgboost</code>, and
-          <code>leaps</code>. Applied tuning and feature pruning
-          iteratively.</p>
+          <h3>Modeling Techniques</h3>
+          <p>Explored a full spectrum — from simple OLS linear regression
+          to ensemble methods using <code>ranger</code>, <code>caret</code>,
+          and <code>xgboost</code>. Applied 10-fold cross-validation
+          to prevent bias throughout.</p>
         </div>
         <div class="approach-card">
           <span class="approach-number">04</span>
-          <h3>Iteration & Refinement</h3>
-          <p>19 models submitted. Each iteration informed the next —
-          adjusting <code>mtry</code>, tree count, node size, splitting
-          rules, and predictor sets based on leaderboard feedback.</p>
+          <h3>Hyperparameter Tuning</h3>
+          <p>Systematically optimized <code>mtry</code>,
+          <code>min.node.size</code>, and <code>ntree</code>. Switched
+          from standard Random Forest to <code>ranger</code> for faster,
+          more precise tuning across 19 iterations.</p>
         </div>
       </div>
     </section>
 
-    <!-- Model Journey -->
+    <!-- ── PHASE PROGRESSION TABLE ── -->
     <section class="project-section">
-      <h2 class="section-heading">The Model Journey</h2>
+      <h2 class="section-heading">Phase-by-Phase Model Progression</h2>
       <p>
-        From a single-predictor baseline to a 27-variable tuned Random
-        Forest — here's how performance evolved across 19 submissions.
+        Rather than listing all 19 models, the journey groups into
+        four distinct phases — each representing a meaningful shift
+        in strategy.
       </p>
 
-      <!-- Score evolution visual -->
-      <div class="score-chart">
-        <div class="chart-label-row">
-          <span>Kaggle Score (RMSE) — lower is better</span>
+      <div class="phase-table-wrap">
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>Key Technical Shift</th>
+              <th>Test RMSE</th>
+              <th>Kaggle Score</th>
+              <th>Key Takeaway</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="phase-label baseline">Phase 1</span><br>
+                <strong>The Baseline</strong><br>
+                <span class="phase-model">Model 1</span>
+              </td>
+              <td>Simple Linear Regression using only <code>make_name</code></td>
+              <td>14,788</td>
+              <td>14,789</td>
+              <td>High bias, low variance. Underfitted but generalized perfectly.</td>
+            </tr>
+            <tr class="row-danger">
+              <td>
+                <span class="phase-label danger">Phase 2</span><br>
+                <strong>The Overfitting Trap</strong><br>
+                <span class="phase-model">Model 3</span>
+              </td>
+              <td>Random Forest (caret), 10-fold CV, 500 trees</td>
+              <td>5,036</td>
+              <td><strong>24,810</strong></td>
+              <td>+19,000 point gap. Capturing noise, not signal.</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="phase-label mid">Phase 3</span><br>
+                <strong>Optimization</strong><br>
+                <span class="phase-model">Model 10</span>
+              </td>
+              <td>Switched to ranger. Tuned mtry=10, 1,000 trees</td>
+              <td>4,536</td>
+              <td>3,948</td>
+              <td>Major breakthrough. Hyperparameter control closed the gap.</td>
+            </tr>
+            <tr class="row-best">
+              <td>
+                <span class="phase-label best">Phase 4 ★</span><br>
+                <strong>Feature Engineering</strong><br>
+                <span class="phase-model">Model 18</span>
+              </td>
+              <td>Engineered <code>torque_lb</code>, consolidated <code>make_name</code></td>
+              <td>3,733</td>
+              <td><strong>3,420</strong></td>
+              <td>Best score. Domain features outperformed raw model scaling.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── GENERALIZATION GAP VISUAL ── -->
+    <section class="project-section">
+      <h2 class="section-heading">The Generalization Gap</h2>
+      <p>
+        The chart below shows how training performance and leaderboard
+        performance diverged — and then converged — across the four phases.
+      </p>
+
+      <div class="gap-chart">
+        <div class="gap-chart-inner">
+
+          <!-- Y axis label -->
+          <div class="gap-y-label">RMSE (lower is better)</div>
+
+          <!-- Chart rows -->
+          <div class="gap-rows">
+
+            <div class="gap-row">
+              <span class="gap-model">Model 1</span>
+              <div class="gap-bars">
+                <div class="gap-bar test" style="width: 60%">
+                  <span>Test 14,788</span>
+                </div>
+                <div class="gap-bar kaggle" style="width: 60%">
+                  <span>Kaggle 14,789</span>
+                </div>
+              </div>
+              <span class="gap-tag neutral">Aligned ✓</span>
+            </div>
+
+            <div class="gap-row">
+              <span class="gap-model">Model 3</span>
+              <div class="gap-bars">
+                <div class="gap-bar test" style="width: 20%">
+                  <span>Test 5,036</span>
+                </div>
+                <div class="gap-bar kaggle danger-bar" style="width: 100%">
+                  <span>Kaggle 24,810 ⚠️</span>
+                </div>
+              </div>
+              <span class="gap-tag danger">+19k Gap</span>
+            </div>
+
+            <div class="gap-row">
+              <span class="gap-model">Model 10</span>
+              <div class="gap-bars">
+                <div class="gap-bar test" style="width: 18%">
+                  <span>Test 4,536</span>
+                </div>
+                <div class="gap-bar kaggle" style="width: 16%">
+                  <span>Kaggle 3,948</span>
+                </div>
+              </div>
+              <span class="gap-tag mid">Closing ↘</span>
+            </div>
+
+            <div class="gap-row">
+              <span class="gap-model">Model 18 ★</span>
+              <div class="gap-bars">
+                <div class="gap-bar test best-bar" style="width: 15%">
+                  <span>Test 3,733</span>
+                </div>
+                <div class="gap-bar kaggle best-bar" style="width: 14%">
+                  <span>Kaggle 3,420</span>
+                </div>
+              </div>
+              <span class="gap-tag best">Converged ★</span>
+            </div>
+
+          </div>
         </div>
-        <div class="chart-bars">
 
-          <div class="chart-bar-row">
-            <span class="bar-model">M1</span>
-            <div class="bar-wrap">
-              <div class="bar bad" style="width: 60%">
-                <span class="bar-score">14,789</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="chart-bar-row">
-            <span class="bar-model">M3</span>
-            <div class="bar-wrap">
-              <div class="bar bad" style="width: 100%">
-                <span class="bar-score">24,810</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="chart-bar-row">
-            <span class="bar-model">M6</span>
-            <div class="bar-wrap">
-              <div class="bar mid" style="width: 40%">
-                <span class="bar-score">9,826</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="chart-bar-row">
-            <span class="bar-model">M8</span>
-            <div class="bar-wrap">
-              <div class="bar mid" style="width: 26%">
-                <span class="bar-score">6,252</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="chart-bar-row">
-            <span class="bar-model">M15</span>
-            <div class="bar-wrap">
-              <div class="bar good" style="width: 15%">
-                <span class="bar-score">3,649</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="chart-bar-row">
-            <span class="bar-model">M18 ★</span>
-            <div class="bar-wrap">
-              <div class="bar best" style="width: 14%">
-                <span class="bar-score">3,420</span>
-              </div>
-            </div>
-          </div>
-
+        <div class="gap-legend">
+          <span class="legend-item test">■ Internal Test RMSE</span>
+          <span class="legend-item kaggle">■ Kaggle Leaderboard</span>
         </div>
       </div>
     </section>
 
-    <!-- Worst vs Best -->
+    <!-- ── KEY INSIGHT ── -->
     <section class="project-section">
-      <h2 class="section-heading">Contrasting Performance</h2>
-      <div class="contrast-grid">
+      <h2 class="section-heading">Key Insight & Outcome</h2>
+      <p>
+        This project underscored that predictive power is not merely a
+        function of model complexity — it is a function of
+        <strong>robust generalization</strong>.
+      </p>
+      <p>
+        While Model 3 achieved a low training RMSE of 5,836, its Kaggle
+        score of 24,810 revealed a catastrophic failure to generalize.
+        Through iterative refinement, <strong>Model 18</strong> emerged as
+        the highest-performing configuration — a tuned
+        <code>ranger</code> forest with 27 predictors, mtry=12, and
+        1,000 trees — reducing leaderboard error to <strong>3,420</strong>.
+      </p>
 
-        <div class="contrast-card worst">
-          <div class="contrast-label">Worst Performer</div>
-          <h3>Model 3 — Random Forest (caret)</h3>
-          <div class="contrast-stats">
-            <div class="stat">
-              <span class="stat-value">5,036</span>
-              <span class="stat-label">Test RMSE</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">24,810</span>
-              <span class="stat-label">Kaggle Score</span>
-            </div>
-          </div>
-          <p>
-            Looked great in training — but a ~17,000 point gap on the
-            leaderboard revealed severe overfitting and poor generalization
-            to unseen scoring data.
-          </p>
+      <div class="outcome-stats">
+        <div class="outcome-stat">
+          <span class="outcome-value">19,000+</span>
+          <span class="outcome-label">Point gap diagnosed & closed</span>
         </div>
-
-        <div class="contrast-card best">
-          <div class="contrast-label">Best Performer</div>
-          <h3>Model 18 — Ranger Forest</h3>
-          <div class="contrast-stats">
-            <div class="stat">
-              <span class="stat-value">3,733</span>
-              <span class="stat-label">Test RMSE</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">3,420</span>
-              <span class="stat-label">Kaggle Score</span>
-            </div>
-          </div>
-          <p>
-            27 predictors, mtry=12, 1,000 trees, variance splitting.
-            Adding torque_lb and make_name pushed generalization
-            significantly — test and Kaggle scores finally aligned.
-          </p>
+        <div class="outcome-stat">
+          <span class="outcome-value">19</span>
+          <span class="outcome-label">Models iterated</span>
         </div>
-
+        <div class="outcome-stat">
+          <span class="outcome-value">3,420</span>
+          <span class="outcome-label">Final best Kaggle RMSE</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="outcome-value">27</span>
+          <span class="outcome-label">Features in winning model</span>
+        </div>
       </div>
-    </section>
 
-    <!-- Key Predictors -->
-    <section class="project-section">
-      <h2 class="section-heading">What Actually Predicted Price</h2>
+      <!-- Top features -->
       <div class="predictor-group">
-        <h4>Strongest Predictors</h4>
+        <h4>Strongest Predictors in Model 18</h4>
         <div class="pill-group">
           <span class="pill">Horsepower</span>
           <span class="pill">Engine Displacement</span>
           <span class="pill">Torque (lb)</span>
-          <span class="pill">Make / Model</span>
+          <span class="pill">Make / Model Name</span>
           <span class="pill">Year</span>
           <span class="pill">Mileage</span>
-        </div>
-      </div>
-      <div class="predictor-group">
-        <h4>Supporting Predictors</h4>
-        <div class="pill-group">
           <span class="pill">Seller Rating</span>
-          <span class="pill">Franchise Dealer</span>
-          <span class="pill">Days on Market</span>
-          <span class="pill">Body Type (SUV/Pickup/Coupe)</span>
+          <span class="pill">Body Type</span>
           <span class="pill">Fuel Economy</span>
-          <span class="pill">Vehicle Dimensions</span>
         </div>
       </div>
     </section>
 
-    <!-- Key Learnings -->
+    <!-- ── ENGINEERING MATURITY LESSON ── -->
     <section class="project-section">
-      <h2 class="section-heading">Key Learnings</h2>
+      <h2 class="section-heading">Engineering Maturity Lesson</h2>
+      <p>
+        This project taught me that modeling is an
+        <strong>iterative learning process</strong> — not a linear task.
+        Each of the 19 submissions built deliberately on the last.
+      </p>
+
       <div class="learnings-grid">
-
         <div class="learning-card">
-          <span class="learning-icon">🗂️</span>
-          <h4>Structured Methodology</h4>
-          <p>Properly defined objectives and preprocessing steps gave
-          direction and focus throughout the month-long competition.</p>
+          <span class="learning-icon">📉</span>
+          <h4>Validation Over Training Performance</h4>
+          <p>Low training error is deceptive if the model is capturing
+          noise rather than signal. Model 3 taught this lesson better
+          than any textbook.</p>
         </div>
-
         <div class="learning-card">
-          <span class="learning-icon">🔍</span>
-          <h4>Data Exploration</h4>
-          <p>Closely examining patterns revealed biases, outliers, and
-          relevant features that raw statistics alone would have missed.</p>
+          <span class="learning-icon">⚖️</span>
+          <h4>The Simplicity–Performance Tradeoff</h4>
+          <p>Complex models capture intricate patterns — but are prone
+          to overfitting if not rigorously pruned and validated against
+          unseen data.</p>
         </div>
-
         <div class="learning-card">
-          <span class="learning-icon">⚠️</span>
-          <h4>Overfitting is Deceptive</h4>
-          <p>A low training RMSE means nothing if the model can't
-          generalize. Model 3 taught this lesson better than any textbook.</p>
+          <span class="learning-icon">🎯</span>
+          <h4>Generalization Strategies</h4>
+          <p>A "good" model maintains performance across unseen datasets.
+          Feature selection and regularization matter more than
+          raw model complexity.</p>
         </div>
-
-        <div class="learning-card">
-          <span class="learning-icon">🔄</span>
-          <h4>Iteration is Everything</h4>
-          <p>Each of the 19 models built on the last. Small, deliberate
-          changes — not big overhauls — drove the biggest improvements.</p>
-        </div>
-
         <div class="learning-card">
           <span class="learning-icon">🧠</span>
           <h4>Domain Knowledge Matters</h4>
-          <p>Understanding cars — what drives value, what buyers care
-          about — shaped better features than algorithmic selection alone.</p>
+          <p>Engineering <code>torque_lb</code> and consolidating
+          <code>make_name</code> outperformed algorithmic tuning alone.
+          Understanding cars drove better features than scaling models.</p>
         </div>
-
         <div class="learning-card">
-          <span class="learning-icon">📊</span>
-          <h4>Ensemble Methods Win</h4>
-          <p>Random Forest and XGBoost consistently outperformed linear
-          models by capturing non-linear relationships in the data.</p>
+          <span class="learning-icon">🔄</span>
+          <h4>Iteration is Everything</h4>
+          <p>Small, deliberate changes — not big overhauls — drove the
+          biggest improvements. Each failure pointed directly to
+          the next fix.</p>
         </div>
-
+        <div class="learning-card">
+          <span class="learning-icon">💬</span>
+          <h4>Communicating Results</h4>
+          <p>Presenting a 19,000-point gap clearly — not hiding it —
+          is what separates a junior analyst from a senior one.
+          Honest diagnostics build credibility.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Footer CTA -->
+    <!-- ── FOOTER CTA ── -->
     <section class="project-section project-footer-cta">
       <a href="../index.html" class="btn-back">← Back to All Projects</a>
     </section>
@@ -318,3 +397,4 @@
 
 </body>
 </html>
+
