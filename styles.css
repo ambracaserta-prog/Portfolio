@@ -549,3 +549,17 @@ a:focus-visible,
   }
   .sparkline path { stroke-dashoffset: 0 !important; }
 }
+/* ---------- About card ---------- */
+.about-card {
+  text-align: center;
+}
+
+.about-card p {
+  max-width: 560px;
+  margin: 0 auto;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
