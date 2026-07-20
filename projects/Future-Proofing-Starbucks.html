@@ -98,6 +98,14 @@
         </tbody>
       </table>
     </div>
+
+    <div class="chart-card">
+      <div class="chart-top">
+        <h3>Capability benchmark, by dimension</h3>
+        <div class="note">Reproduced from the project's competitive radar analysis (Appendix, Fig. A).</div>
+      </div>
+      <img src="starbucks-radar-benchmark.png" alt="Radar chart comparing Starbucks, Dunkin, McCafe, and Pret across Real-time Analytics, Data Integration, AI Capabilities, and Customer Insights" style="width:100%;max-width:520px;display:block;margin:14px auto 0;border-radius:6px;background:#fff;padding:10px;">
+    </div>
   </div>
 </section>
 
@@ -111,6 +119,14 @@
       <div class="stat-card"><div class="num" style="color:var(--green)">+8%</div><div class="lbl">Average basket size, via AI recommendation engines</div></div>
       <div class="stat-card"><div class="num" style="color:var(--green)">−20%</div><div class="lbl">Promo costs, via A/B tested discount models</div></div>
       <div class="stat-card"><div class="num" style="color:var(--green)">31%→45%</div><div class="lbl">Loyalty program penetration, via mobile-first personalization</div></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-top">
+        <h3>Starbucks Rewards membership growth</h3>
+        <div class="note">2020–2024, in millions. The base this whole strategy is built on.</div>
+      </div>
+      <div id="loyalty-chart"></div>
     </div>
 
     <div class="chart-card">
@@ -204,6 +220,33 @@
     ${bars}
   </svg>`;
   document.getElementById('kpi-chart').innerHTML = svg;
+})();
+
+(function(){
+  const data = [
+    {yr:'2020', v:19.3}, {yr:'2021', v:22.9}, {yr:'2022', v:24.2},
+    {yr:'2023', v:27.1}, {yr:'2024', v:30.4}
+  ];
+  const w = 900, h = 240, padL = 40, padR = 30, padT = 30, padB = 34;
+  const maxY = 35, minY = 0;
+  const x = i => padL + (i/(data.length-1)) * (w - padL - padR);
+  const y = v => padT + (1 - (v-minY)/(maxY-minY)) * (h - padT - padB);
+  const line = data.map((d,i) => (i===0?'M':'L') + x(i).toFixed(1) + ',' + y(d.v).toFixed(1)).join(' ');
+  const area = line + ` L${x(data.length-1).toFixed(1)},${h-padB} L${x(0).toFixed(1)},${h-padB} Z`;
+
+  const points = data.map((d,i) => `
+    <circle cx="${x(i).toFixed(1)}" cy="${y(d.v).toFixed(1)}" r="3.5" fill="#1F9A6C"/>
+    <text x="${x(i).toFixed(1)}" y="${y(d.v)-12}" text-anchor="middle" font-size="11" fill="#1F9A6C" font-weight="600">${d.v}M</text>
+    <text x="${x(i).toFixed(1)}" y="${h-12}" text-anchor="middle" font-size="10.5" fill="#8992A3">${d.yr}</text>
+  `).join('');
+
+  const svg2 = `
+  <svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="Line chart of Starbucks Rewards membership growth from 2020 to 2024">
+    <path d="${area}" fill="#1F9A6C" opacity="0.12"/>
+    <path d="${line}" fill="none" stroke="#1F9A6C" stroke-width="2.25"/>
+    ${points}
+  </svg>`;
+  document.getElementById('loyalty-chart').innerHTML = svg2;
 })();
 </script>
 
