@@ -100,7 +100,7 @@ body {
 
 .hero > .hero-inner > p {
   font-family: 'Fraunces', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.2rem;
   color: var(--ink-soft-dark);
   max-width: 480px;
