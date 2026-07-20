@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <polyline
         class="spark-line"
-        points="4,36 24,30 44,34 64,20 84,24 104,14 124,16 142,8"
+        points="4,36 24,30 44,34 64,20 84,24 104,14 124,8 142,8"
         stroke="url(#sparklineGradient)"
         stroke-width="2.2"
         stroke-linecap="round"
