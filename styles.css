@@ -167,7 +167,6 @@ h3, .hero {
 /* ============================================================
    SECTION HEADINGS — light bg
    ============================================================ */
-
 h3 {
   max-width: var(--max-width);
   margin: 64px auto 20px;
@@ -224,7 +223,7 @@ h3 {
 
 .content-wrap > p {
   max-width: var(--max-width);
-  margin: 0 auto 18px;
+  margin-top: 32px;
   color: var(--ink-soft);
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -317,13 +316,17 @@ a:hover {
   color: var(--crimson);
   margin: 20px 0 6px;
 }
-
+#certifications ~ .project-card h4 {
+  text-align: center;
+}
 /* ============================================================
    SKILL PILLS
    ============================================================ */
 
 .pill-group {
   display: flex;
+  text-align: center;
+   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
 }
