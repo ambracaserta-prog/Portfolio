@@ -126,8 +126,16 @@ body {
   padding: 14px 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 
 .nav-brand {
   font-family: 'Fraunces', Georgia, serif;
