@@ -171,7 +171,7 @@ h3, .hero {
    ============================================================ */
 h3 {
   max-width: var(--max-width);
-  margin: 64px auto 20px;
+  margin: 40px auto 20px;
   font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
