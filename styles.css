@@ -240,7 +240,7 @@ h3 {
 
 /* ---------- About card ---------- */
 .about-card {
-  text-align: center;
+  text-align: left;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -255,6 +255,7 @@ h3 {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--ink-soft);
+  margin: 0;
 }
 
 /* ============================================================
