@@ -240,7 +240,12 @@ h3 {
 
 /* ---------- About card ---------- */
 .about-card {
-  text-align: center;
+  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 32px;
+  box-shadow: var(--shadow);
 }
 
 .about-card p {
