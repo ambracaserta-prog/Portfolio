@@ -96,6 +96,8 @@ body {
   letter-spacing: 0.08em;
   color: var(--crimson);
   margin: 0 0 20px;
+  text-align: center;
+  width: 100%;
 }
 
 .hero > .hero-inner > p {
@@ -128,14 +130,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.nav-links {
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 
 .nav-brand {
   font-family: 'Fraunces', Georgia, serif;
@@ -217,6 +211,8 @@ h3 {
 }
 
 .project-card p {
+  font-style: normal;
+  font-family: 'Inter', sans-serif;
   color: var(--ink-soft);
   margin: 0 0 10px;
 }
@@ -242,6 +238,11 @@ h3 {
   font-family: 'Inter', sans-serif;
 }
 
+/* ---------- About card ---------- */
+.about-card {
+  text-align: center;
+}
+
 .about-card p {
   font-style: normal;
   font-family: 'Inter', sans-serif;
@@ -249,15 +250,9 @@ h3 {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--ink-soft);
+  max-width: 560px;
+  margin: 0 auto;
 }
-
-.project-card p {
-  font-style: normal;
-  font-family: 'Inter', sans-serif;
-  color: var(--ink-soft);
-  margin: 0 0 10px;
-}
-
 
 /* ============================================================
    LINKS
@@ -346,14 +341,15 @@ a:hover {
 #certifications ~ .project-card h4 {
   text-align: center;
 }
+
 /* ============================================================
    SKILL PILLS
    ============================================================ */
 
 .pill-group {
   display: flex;
-  text-align: center;
-   justify-content: center;
+  text-align: left;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 8px;
 }
@@ -367,6 +363,24 @@ a:hover {
   border: 1px solid rgba(139, 38, 53, 0.22);
   border-radius: 999px;
   padding: 6px 14px;
+}
+
+/* ---------- Customer Intelligence pill color ---------- */
+.skills-card:nth-of-type(1) .pill {
+  color: #A86B74;
+  background: rgba(168, 107, 116, 0.10);
+  border: 1px solid rgba(168, 107, 116, 0.28);
+}
+
+/* Customer Intelligence card specific color */
+#skills-ci .pill {
+  color: #A86B74;
+  background: rgba(168, 107, 116, 0.10);
+  border: 1px solid rgba(168, 107, 116, 0.28);
+}
+
+#skills-ci h4 {
+  color: #A86B74;
 }
 
 /* ============================================================
@@ -522,29 +536,6 @@ a:hover {
   to { opacity: 1; }
 }
 
-/* ---------- Hero h2 centered ---------- */
-
-.hero h2 {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--crimson);
-  margin: 0 0 20px;
-  text-align: center;       /* ← force center */
-  width: 100%;
-}
-
-/* ---------- Customer Intelligence pill color ---------- */
-
-.skills-card:nth-of-type(1) .pill {
-  color: #A86B74;
-  background: rgba(168, 107, 116, 0.10);
-  border: 1px solid rgba(168, 107, 116, 0.28);
-}
-
-
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -599,28 +590,4 @@ a:focus-visible,
     transform: none !important;
   }
   .sparkline path { stroke-dashoffset: 0 !important; }
-}
-/* ---------- About card ---------- */
-.about-card {
-  text-align: center;
-}
-
-.about-card p {
-  max-width: 560px;
-  margin: 0 auto;
-  font-family: 'Fraunces', Georgia, serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--ink-soft);
-}
-/* Customer Intelligence card specific color */
-#skills-ci .pill {
-  color: #A86B74;
-  background: rgba(168, 107, 116, 0.10);
-  border: 1px solid rgba(168, 107, 116, 0.28);
-}
-
-#skills-ci h4 {
-  color: #A86B74;
 }
