@@ -240,6 +240,8 @@ h3 {
 
 /* ---------- About card ---------- */
 .about-card {
+  max-width: var(--max-width);
+  margin: 0 auto;
   text-align: left;
   background: var(--bg-card);
   border: 1px solid var(--border);
